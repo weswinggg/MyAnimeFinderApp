@@ -13,6 +13,8 @@
 		F84AB655254D6EB800C8D58F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F84AB653254D6EB800C8D58F /* Main.storyboard */; };
 		F84AB657254D6EBC00C8D58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F84AB656254D6EBC00C8D58F /* Assets.xcassets */; };
 		F84AB65A254D6EBC00C8D58F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F84AB658254D6EBC00C8D58F /* LaunchScreen.storyboard */; };
+		F8BC8C38254D7981007F85BD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC8C37254D7981007F85BD /* LoginViewController.swift */; };
+		F8BC8C3B254D798F007F85BD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC8C3A254D798F007F85BD /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		F84AB656254D6EBC00C8D58F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F84AB659254D6EBC00C8D58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F84AB65B254D6EBC00C8D58F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8BC8C37254D7981007F85BD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F8BC8C3A254D798F007F85BD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +62,23 @@
 			children = (
 				F84AB64D254D6EB800C8D58F /* AppDelegate.swift */,
 				F84AB64F254D6EB800C8D58F /* SceneDelegate.swift */,
-				F84AB651254D6EB800C8D58F /* ViewController.swift */,
+				F8BC8C35254D7967007F85BD /* Controller */,
 				F84AB653254D6EB800C8D58F /* Main.storyboard */,
 				F84AB656254D6EBC00C8D58F /* Assets.xcassets */,
 				F84AB658254D6EBC00C8D58F /* LaunchScreen.storyboard */,
 				F84AB65B254D6EBC00C8D58F /* Info.plist */,
 			);
 			path = AnimeFinder;
+			sourceTree = "<group>";
+		};
+		F8BC8C35254D7967007F85BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F84AB651254D6EB800C8D58F /* ViewController.swift */,
+				F8BC8C37254D7981007F85BD /* LoginViewController.swift */,
+				F8BC8C3A254D798F007F85BD /* RegisterViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8BC8C38254D7981007F85BD /* LoginViewController.swift in Sources */,
+				F8BC8C3B254D798F007F85BD /* RegisterViewController.swift in Sources */,
 				F84AB652254D6EB800C8D58F /* ViewController.swift in Sources */,
 				F84AB64E254D6EB800C8D58F /* AppDelegate.swift in Sources */,
 				F84AB650254D6EB800C8D58F /* SceneDelegate.swift in Sources */,

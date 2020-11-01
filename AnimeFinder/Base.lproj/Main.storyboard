@@ -141,15 +141,35 @@
             </objects>
             <point key="canvasLocation" x="2242.0289855072465" y="430.58035714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="ipM-M4-mHv">
             <objects>
-                <viewController id="UF8-2W-Phv" sceneMemberID="viewController">
+                <viewController id="UF8-2W-Phv" customClass="HomeViewController" customModule="AnimeFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0r7-2a-37M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUn-8o-fvo">
+                                <rect key="frame" x="157" y="418" width="100" height="60"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="wuB-em-zCk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="TEST">
+                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="testPressed:" destination="UF8-2W-Phv" eventType="touchUpInside" id="Vvq-Nu-dFS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Tc2-lU-mMB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HUn-8o-fvo" firstAttribute="centerX" secondItem="0r7-2a-37M" secondAttribute="centerX" id="Caq-fn-plg"/>
+                            <constraint firstItem="HUn-8o-fvo" firstAttribute="centerY" secondItem="0r7-2a-37M" secondAttribute="centerY" id="s4a-xi-Mka"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AHm-u8-EHR"/>
                 </viewController>
@@ -245,7 +265,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TXd-9m-lAm"/>
+        <segue reference="J1f-CU-gUJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
@@ -253,6 +273,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -172,10 +172,39 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AHm-u8-EHR"/>
+                    <connections>
+                        <segue destination="V2t-nj-x8h" kind="show" identifier="SearchToResults" id="a2b-Yd-5ik"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b87-RF-Zon" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3023.1884057971015" y="71.651785714285708"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="xHv-5P-h9N">
+            <objects>
+                <viewController id="V2t-nj-x8h" customClass="ResultsViewController" customModule="AnimeFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pJY-2m-ES1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qEv-Aa-JW7" customClass="PoiView" customModule="Poi">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lkL-hs-oSf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="khs-QV-yH4"/>
+                    <connections>
+                        <outlet property="poiView" destination="qEv-Aa-JW7" id="PZB-Xx-BuD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLM-Yr-cxO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3715.9420289855075" y="71.651785714285708"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="UMv-eR-WPl">
@@ -273,6 +302,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

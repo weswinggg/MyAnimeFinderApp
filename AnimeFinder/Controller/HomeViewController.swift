@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Poi
 
 class HomeViewController: UIViewController {
-    
+            
     let animeManager = MyAnimeManager()
+    
+    var searchResults = [AnimeSearch.Result]()
+    var sampleCards = [UIView]()
     
     @IBAction func testPressed(_ sender: UIButton) {
         
@@ -22,15 +26,26 @@ class HomeViewController: UIViewController {
         animeManager.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destination = segue.destination as! ResultsViewController
+        destination.results = searchResults
+    }
+    
 }
+
+
 
 extension HomeViewController: MyAnimeManagerDelegate {
     func didSearchComplete(with data: AnimeSearch) {
-        for i in data.results {
-            print(i.mal_id)
-            print(i.title)
-        }
-    }
-}
+        searchResults = data.results
 
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "SearchToResults", sender: self)
+        }
+        
+    }
+    
+
+}
 

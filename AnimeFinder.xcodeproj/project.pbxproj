@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2584BA1DA46427C5A481E42 /* Pods_AnimeFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73E92A9D3EC5694C83E4522 /* Pods_AnimeFinder.framework */; };
+		F81DA316254FEB3100E51D59 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DA315254FEB3100E51D59 /* ResultsViewController.swift */; };
 		F84AB64E254D6EB800C8D58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84AB64D254D6EB800C8D58F /* AppDelegate.swift */; };
 		F84AB650254D6EB800C8D58F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84AB64F254D6EB800C8D58F /* SceneDelegate.swift */; };
 		F84AB652254D6EB800C8D58F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84AB651254D6EB800C8D58F /* ViewController.swift */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26D00F4F10EA78E7DF0EC872 /* Pods-AnimeFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFinder.debug.xcconfig"; path = "Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		B5497A4D8383DA6F5D1A4331 /* Pods-AnimeFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFinder.release.xcconfig"; path = "Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder.release.xcconfig"; sourceTree = "<group>"; };
+		D73E92A9D3EC5694C83E4522 /* Pods_AnimeFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81DA315254FEB3100E51D59 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		F84AB64A254D6EB800C8D58F /* AnimeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F84AB64D254D6EB800C8D58F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F84AB64F254D6EB800C8D58F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2584BA1DA46427C5A481E42 /* Pods_AnimeFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D5345AA5764F3511F7EADBC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D73E92A9D3EC5694C83E4522 /* Pods_AnimeFinder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC5E40D0D493F3CED41A8143 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26D00F4F10EA78E7DF0EC872 /* Pods-AnimeFinder.debug.xcconfig */,
+				B5497A4D8383DA6F5D1A4331 /* Pods-AnimeFinder.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F84AB641254D6EB800C8D58F = {
 			isa = PBXGroup;
 			children = (
 				F84AB64C254D6EB800C8D58F /* AnimeFinder */,
 				F84AB64B254D6EB800C8D58F /* Products */,
+				EC5E40D0D493F3CED41A8143 /* Pods */,
+				D5345AA5764F3511F7EADBC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +120,7 @@
 				F8BC8C37254D7981007F85BD /* LoginViewController.swift */,
 				F8BC8C3A254D798F007F85BD /* RegisterViewController.swift */,
 				F89AA181254EED1C00E58CA6 /* HomeViewController.swift */,
+				F81DA315254FEB3100E51D59 /* ResultsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F84AB65E254D6EBC00C8D58F /* Build configuration list for PBXNativeTarget "AnimeFinder" */;
 			buildPhases = (
+				6641B9EDE19CBBF247BDE9DA /* [CP] Check Pods Manifest.lock */,
 				F84AB646254D6EB800C8D58F /* Sources */,
 				F84AB647254D6EB800C8D58F /* Frameworks */,
 				F84AB648254D6EB800C8D58F /* Resources */,
+				3C1942DFBD3575BE833D5AD8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,6 +192,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C1942DFBD3575BE833D5AD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6641B9EDE19CBBF247BDE9DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnimeFinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F84AB646254D6EB800C8D58F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -173,6 +244,7 @@
 				F8BC8C3B254D798F007F85BD /* RegisterViewController.swift in Sources */,
 				F84AB652254D6EB800C8D58F /* ViewController.swift in Sources */,
 				F89AA182254EED1C00E58CA6 /* HomeViewController.swift in Sources */,
+				F81DA316254FEB3100E51D59 /* ResultsViewController.swift in Sources */,
 				F84AB64E254D6EB800C8D58F /* AppDelegate.swift in Sources */,
 				F89AA186254EF4C800E58CA6 /* AnimeData.swift in Sources */,
 				F84AB650254D6EB800C8D58F /* SceneDelegate.swift in Sources */,
@@ -319,6 +391,7 @@
 		};
 		F84AB65F254D6EBC00C8D58F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26D00F4F10EA78E7DF0EC872 /* Pods-AnimeFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -338,6 +411,7 @@
 		};
 		F84AB660254D6EBC00C8D58F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5497A4D8383DA6F5D1A4331 /* Pods-AnimeFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

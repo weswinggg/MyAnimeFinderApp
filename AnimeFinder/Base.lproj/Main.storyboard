@@ -151,19 +151,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUn-8o-fvo">
-                                <rect key="frame" x="157" y="418" width="100" height="60"/>
+                                <rect key="frame" x="107" y="418" width="200" height="60"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="wuB-em-zCk"/>
+                                    <constraint firstAttribute="width" constant="200" id="wuB-em-zCk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="TEST">
                                     <color key="titleColor" systemColor="systemGroupedBackgroundColor"/>
                                 </state>
+                                <state key="disabled" title="Searching"/>
                                 <connections>
                                     <action selector="testPressed:" destination="UF8-2W-Phv" eventType="touchUpInside" id="Vvq-Nu-dFS"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Anime Title" textAlignment="natural" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="4N9-UQ-kwH">
+                                <rect key="frame" x="20" y="139" width="374" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tc2-lU-mMB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -174,6 +182,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="AHm-u8-EHR"/>
                     <connections>
+                        <outlet property="searchTextField" destination="4N9-UQ-kwH" id="6dj-Pc-ZcT"/>
+                        <outlet property="testButton" destination="HUn-8o-fvo" id="Xlm-gW-r1l"/>
                         <segue destination="V2t-nj-x8h" kind="show" identifier="SearchToResults" id="a2b-Yd-5ik"/>
                     </connections>
                 </viewController>
@@ -210,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLM-Yr-cxO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3715.9420289855075" y="71.651785714285708"/>
+            <point key="canvasLocation" x="3793" y="431"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="UMv-eR-WPl">
@@ -306,6 +316,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

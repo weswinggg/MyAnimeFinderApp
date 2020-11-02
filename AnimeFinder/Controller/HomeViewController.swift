@@ -15,9 +15,12 @@ class HomeViewController: UIViewController {
     var searchResults = [AnimeSearch.Result]()
     var images = [UIImage]()
     
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var testButton: UIButton!
+    
     @IBAction func testPressed(_ sender: UIButton) {
-        
-        animeManager.searchTitle(with: "one")
+        let searchText = searchTextField.text ?? ""
+        animeManager.searchTitle(with: searchText)
     }
     
     override func viewDidLoad() {
@@ -30,6 +33,7 @@ class HomeViewController: UIViewController {
         
         let destination = segue.destination as! ResultsViewController
         destination.results = searchResults
+        images = [UIImage]()
         
         for i in searchResults {
             let image = animeManager.getImage(with: i.image_url)
@@ -51,9 +55,6 @@ extension HomeViewController: MyAnimeManagerDelegate {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "SearchToResults", sender: self)
         }
-        
     }
-    
-
 }
 

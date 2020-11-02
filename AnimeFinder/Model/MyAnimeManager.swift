@@ -21,7 +21,8 @@ class MyAnimeManager {
             return
         }
         
-        let urlString = "https://api.jikan.moe/v3/search/anime?q=\(title)&limit=10"
+        var urlString = "https://api.jikan.moe/v3/search/anime?q=\(title)&limit=10"
+        urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: urlString)!
 
         let session = URLSession(configuration: .default)

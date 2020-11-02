@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func testPressed(_ sender: UIButton) {
         
-        animeManager.getList(with: "one")
+        animeManager.searchTitle(with: "one")
     }
     
     override func viewDidLoad() {
@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
         
         animeManager.delegate = self
     }
+    
 }
 
 extension HomeViewController: MyAnimeManagerDelegate {
@@ -31,3 +32,5 @@ extension HomeViewController: MyAnimeManagerDelegate {
         }
     }
 }
+
+

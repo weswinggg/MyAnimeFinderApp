@@ -16,7 +16,7 @@ class MyAnimeManager {
     
     var delegate: MyAnimeManagerDelegate?
     
-    func getList(with title: String) {
+    func searchTitle(with title: String) {
         if title == "" {
             return
         }

@@ -14,19 +14,15 @@ class ResultsViewController: UIViewController {
     
     var results = [AnimeSearch.Result]()
     var sampleCards = [UIView]()
+    var images = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         for (i, res) in results.enumerated() {
             
-            self.sampleCards.append(UIView(frame: CGRect(x: 0, y: 0, width: 240, height: 240)))
-            if i % 2 == 0 {
-                self.sampleCards[i].backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-            } else {
-                self.sampleCards[i].backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
-            }
+            sampleCards.append(UIView(frame: CGRect(x: 0, y: 0, width: 240, height: 240)))
+            sampleCards[i].backgroundColor = UIColor(patternImage: images[i])
             
             print(res.title)
         }

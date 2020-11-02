@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     let animeManager = MyAnimeManager()
     
     var searchResults = [AnimeSearch.Result]()
-    var sampleCards = [UIView]()
+    var images = [UIImage]()
     
     @IBAction func testPressed(_ sender: UIButton) {
         
@@ -30,6 +30,14 @@ class HomeViewController: UIViewController {
         
         let destination = segue.destination as! ResultsViewController
         destination.results = searchResults
+        
+        for i in searchResults {
+            let image = animeManager.getImage(with: i.image_url)
+            images.append(image)
+        }
+        
+        destination.images = images
+        
     }
     
 }

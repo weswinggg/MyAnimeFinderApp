@@ -10,7 +10,7 @@
 // New MyAnimeList API / Jikan
 // https://jikan.docs.apiary.io/#
 
-import Foundation
+import UIKit
 
 class MyAnimeManager {
     
@@ -39,6 +39,13 @@ class MyAnimeManager {
         }
         
         task.resume()
+    }
+    
+    func getImage(with urlString: String) -> UIImage {
+        let url = URL(string: urlString)
+        let data = try? Data(contentsOf: url!)
+        let imageView = UIImage(data: data!)
+        return imageView!
     }
     
     func parseJSON<T: Decodable>(data: Data) -> T{

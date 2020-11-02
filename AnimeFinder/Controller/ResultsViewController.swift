@@ -15,26 +15,40 @@ class ResultsViewController: UIViewController {
     var results = [AnimeSearch.Result]()
     var sampleCards = [UIView]()
     var images = [UIImage]()
+    var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for (i, res) in results.enumerated() {
+        for (i, _) in results.enumerated() {
+      
+            let imageView = UIImageView(image: images[i])
+            imageView.contentMode = UIView.ContentMode.scaleAspectFill
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+                        
+            sampleCards.append(UIView(frame: self.view.bounds))
+            sampleCards[i].addSubview(imageView)
+            sampleCards[i].backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+            sampleCards[i].layer.cornerRadius = 20
+            sampleCards[i].clipsToBounds = true
             
-            sampleCards.append(UIView(frame: CGRect(x: 0, y: 0, width: 240, height: 240)))
-            sampleCards[i].backgroundColor = UIColor(patternImage: images[i])
+            let constraints = [
+                imageView.topAnchor.constraint(equalTo: sampleCards[i].topAnchor),
+                imageView.widthAnchor.constraint(equalTo: sampleCards[i].widthAnchor),
+                imageView.heightAnchor.constraint(equalTo: sampleCards[i].heightAnchor, multiplier: CGFloat(0.7))
+            ]
             
-            print(res.title)
+            NSLayoutConstraint.activate(constraints)
         }
         
         poiView.dataSource = self
         poiView.delegate = self
     }
+    
 }
 
 extension ResultsViewController: PoiViewDataSource {
     func numberOfCards(_ poi: PoiView) -> Int {
-        print(results.count)
         return results.count
     }
     
@@ -57,6 +71,7 @@ extension ResultsViewController: PoiViewDataSource {
 extension ResultsViewController: PoiViewDelegate {
     func poi(_ poi: PoiView, didSwipeCardAt: Int, in direction: SwipeDirection) {
         print(didSwipeCardAt, direction)
+        counter += 1
     }
     
     func poi(_ poi: PoiView, runOutOfCardAt: Int, in direction: SwipeDirection) {

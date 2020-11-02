@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KU8-xA-YLU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -188,14 +189,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qEv-Aa-JW7" customClass="PoiView" customModule="Poi">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEv-Aa-JW7" customClass="PoiView" customModule="Poi">
+                                <rect key="frame" x="30" y="118" width="354" height="694"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lkL-hs-oSf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lkL-hs-oSf" firstAttribute="bottom" secondItem="qEv-Aa-JW7" secondAttribute="bottom" constant="50" id="Au2-Vq-NS2"/>
+                            <constraint firstItem="lkL-hs-oSf" firstAttribute="trailing" secondItem="qEv-Aa-JW7" secondAttribute="trailing" constant="30" id="Ny5-oJ-2hG"/>
+                            <constraint firstItem="qEv-Aa-JW7" firstAttribute="leading" secondItem="lkL-hs-oSf" secondAttribute="leading" constant="30" id="ZYJ-b7-N5D"/>
+                            <constraint firstItem="qEv-Aa-JW7" firstAttribute="top" secondItem="lkL-hs-oSf" secondAttribute="top" constant="30" id="tB7-MU-Wsz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="khs-QV-yH4"/>
                     <connections>

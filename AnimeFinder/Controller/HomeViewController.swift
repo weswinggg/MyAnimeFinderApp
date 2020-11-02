@@ -24,10 +24,10 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: MyAnimeManagerDelegate {
-    func didUpdateList(list: AnimeList) {
-        for i in list.data {
-            print(i.node.id)
-            print(i.node.title)
+    func didSearchComplete(with data: AnimeSearch) {
+        for i in data.results {
+            print(i.mal_id)
+            print(i.title)
         }
     }
 }

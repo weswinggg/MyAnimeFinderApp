@@ -7,21 +7,23 @@
 
 import Foundation
 
-struct AnimeList: Decodable {
-    struct Data: Decodable {
-        let node: Node
-    }
-    
-    struct Node: Decodable {
-        let id: Int
+struct AnimeSearch: Decodable {
+    struct Result: Decodable {
+        let mal_id: Int
         let title: String
-        let main_picture: MainPicture
+        let image_url: String
+        let url: String
+        
+        let type: String
+        let airing: Bool
+        
+        let synopsis: String
+        
+        let episodes: Int
+        let score: Double
+        let rated: String
+        
     }
     
-    struct MainPicture: Decodable {
-        let medium: String
-        let large: String
-    }
-    
-    let data: [Data]
+    let results: [Result]
 }

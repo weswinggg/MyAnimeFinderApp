@@ -7,11 +7,8 @@
 
 // Model will utilize the API
 
-// API token setup link:
-// https://myanimelist.net/blog.php?eid=835707
-
-// API doc link:
-// https://myanimelist.net/apiconfig/references/api/v2
+// New MyAnimeList API / Jikan
+// https://jikan.docs.apiary.io/#
 
 import Foundation
 
@@ -19,18 +16,16 @@ class MyAnimeManager {
     
     var delegate: MyAnimeManagerDelegate?
     
-    func getList(with title: String) -> Void {
+    func getList(with title: String) {
         if title == "" {
             return
         }
         
-        let urlString = "https://api.myanimelist.net/v2/anime?q=\(title)&limit=2"
+        let urlString = "https://api.jikan.moe/v3/search/anime?q=\(title)&limit=10"
         let url = URL(string: urlString)!
-        var request = URLRequest(url: url)
-        request.setValue("Bearer \(kMyToken)", forHTTPHeaderField: "Authorization")
-                
+
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { (data, response, error) in
+        let task = session.dataTask(with: url) { (data, response, error) in
             
             if let error = error {
                 print("Session Error:",error.localizedDescription)
@@ -38,26 +33,25 @@ class MyAnimeManager {
             }
             
             if let data = data {
-                let list = self.parseJSON(data: data)
-                self.delegate?.didUpdateList(list: list)
+                let list: AnimeSearch = self.parseJSON(data: data)
+                self.delegate?.didSearchComplete(with: list)
             }
         }
         
         task.resume()
     }
     
-    func parseJSON(data: Data) -> AnimeList {
+    func parseJSON<T: Decodable>(data: Data) -> T{
         let decoder = JSONDecoder()
         
-        do {
-            return try decoder.decode(AnimeList.self, from: data)
-        } catch {
-            print("Decoder Error:",error.localizedDescription)
-            return AnimeList(data: [])
+        guard let decoded = try? decoder.decode(T.self, from: data) else {
+            fatalError("Failed to decode data")
         }
+        
+        return decoded
     }
 }
 
 protocol MyAnimeManagerDelegate {
-    func didUpdateList(list: AnimeList)
+    func didSearchComplete(with data: AnimeSearch)
 }

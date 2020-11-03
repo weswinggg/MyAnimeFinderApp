@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var testButton: UIButton!
+    @IBOutlet weak var genreFilterView: UIView!
     
     @IBAction func testPressed(_ sender: UIButton) {
         let searchText = searchTextField.text ?? ""
@@ -27,6 +28,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         animeManager.delegate = self
+        let genres = animeManager.getGenres()
+        print(genres)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -37,7 +37,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qKF-k0-BBM"/>
-                                    <segue destination="E8D-Gt-R6p" kind="show" id="s4k-Fr-JSn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwI-tD-ezB">
@@ -53,7 +52,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LGV-EC-Wpd"/>
-                                    <segue destination="GLR-Hh-LzJ" kind="show" id="gt6-vn-XTg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,6 +67,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="An6-VW-v2p"/>
+                    <connections>
+                        <segue destination="E8D-Gt-R6p" kind="show" identifier="WelcomeToRegister" id="DNK-ZO-Nh9"/>
+                        <segue destination="GLR-Hh-LzJ" kind="show" identifier="WelcomeToLogin" id="1RC-hY-xPm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,7 +119,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerPressed:" destination="E8D-Gt-R6p" eventType="touchUpInside" id="MSu-Nf-Wvy"/>
-                                    <segue destination="UF8-2W-Phv" kind="show" id="TXd-9m-lAm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,6 +137,7 @@
                     <connections>
                         <outlet property="emailField" destination="Zg7-s2-J14" id="Vcj-PL-TFQ"/>
                         <outlet property="passwordField" destination="sb7-ws-z0T" id="uSb-g3-cPq"/>
+                        <segue destination="UF8-2W-Phv" kind="show" identifier="RegisterToHome" id="pCf-AC-jsM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhO-ma-mHy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,9 +153,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUn-8o-fvo">
-                                <rect key="frame" x="107" y="418" width="200" height="60"/>
+                                <rect key="frame" x="107" y="752" width="200" height="60"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="rYN-av-VTM"/>
                                     <constraint firstAttribute="width" constant="200" id="wuB-em-zCk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -172,16 +175,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xS9-ca-GPa">
+                                <rect key="frame" x="20" y="255" width="374" height="259"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2g-ow-Hf1">
+                                        <rect key="frame" x="18" y="18" width="47" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filter by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjc-f0-YWN">
+                                <rect key="frame" x="20" y="226" width="66" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tc2-lU-mMB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="HUn-8o-fvo" firstAttribute="centerX" secondItem="0r7-2a-37M" secondAttribute="centerX" id="Caq-fn-plg"/>
-                            <constraint firstItem="HUn-8o-fvo" firstAttribute="centerY" secondItem="0r7-2a-37M" secondAttribute="centerY" id="s4a-xi-Mka"/>
+                            <constraint firstItem="HUn-8o-fvo" firstAttribute="centerX" secondItem="0r7-2a-37M" secondAttribute="centerX" id="L5x-Ng-4Jp"/>
+                            <constraint firstItem="Tc2-lU-mMB" firstAttribute="bottom" secondItem="HUn-8o-fvo" secondAttribute="bottom" constant="50" id="wbE-Cf-PzG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AHm-u8-EHR"/>
                     <connections>
+                        <outlet property="genreFilterView" destination="xS9-ca-GPa" id="heK-Ww-tPE"/>
                         <outlet property="searchTextField" destination="4N9-UQ-kwH" id="6dj-Pc-ZcT"/>
                         <outlet property="testButton" destination="HUn-8o-fvo" id="Xlm-gW-r1l"/>
                         <segue destination="V2t-nj-x8h" kind="show" identifier="SearchToResults" id="a2b-Yd-5ik"/>
@@ -220,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLM-Yr-cxO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3793" y="431"/>
+            <point key="canvasLocation" x="3757" y="72"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="UMv-eR-WPl">
@@ -265,7 +290,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="GLR-Hh-LzJ" eventType="touchUpInside" id="Z1l-Re-hWa"/>
-                                    <segue destination="UF8-2W-Phv" kind="show" id="J1f-CU-gUJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -284,6 +308,7 @@
                     <connections>
                         <outlet property="emailField" destination="Sbn-hh-Mrk" id="rDf-UI-NLs"/>
                         <outlet property="passwordField" destination="R6M-MX-ppd" id="c6q-aX-NOs"/>
+                        <segue destination="UF8-2W-Phv" kind="show" identifier="LoginToHome" id="rTS-El-4Oi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o16-0l-LvR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -310,7 +335,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J1f-CU-gUJ"/>
+        <segue reference="rTS-El-4Oi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
@@ -321,6 +346,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

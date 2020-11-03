@@ -49,6 +49,16 @@ class MyAnimeManager {
         return imageView!
     }
     
+    func getGenres() -> [String] {
+
+        var genres = [String]()
+        AnimeGenres.Genres.allCases.forEach {
+            genres.append("\($0)")
+        }
+        
+        return genres
+    }
+    
     func parseJSON<T: Decodable>(data: Data) -> T{
         let decoder = JSONDecoder()
         

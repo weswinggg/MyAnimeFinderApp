@@ -12,12 +12,12 @@ class ViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
         
-        print("Login Pressed")
+        performSegue(withIdentifier: "WelcomeToLogin", sender: self)
     }
     
     @IBAction func registerPressed(_ sender: UIButton) {
         
-        print("Register Pressed")
+        performSegue(withIdentifier: "WelcomeToRegister", sender: self)
     }
     
     

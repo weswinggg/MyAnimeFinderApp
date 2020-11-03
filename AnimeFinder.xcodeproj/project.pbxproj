@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C2584BA1DA46427C5A481E42 /* Pods_AnimeFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73E92A9D3EC5694C83E4522 /* Pods_AnimeFinder.framework */; };
+		F801B3202551AE5000D5C320 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F801B31F2551AE5000D5C320 /* GoogleService-Info.plist */; };
 		F81DA316254FEB3100E51D59 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81DA315254FEB3100E51D59 /* ResultsViewController.swift */; };
 		F84AB64E254D6EB800C8D58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84AB64D254D6EB800C8D58F /* AppDelegate.swift */; };
 		F84AB650254D6EB800C8D58F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84AB64F254D6EB800C8D58F /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 		26D00F4F10EA78E7DF0EC872 /* Pods-AnimeFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFinder.debug.xcconfig"; path = "Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B5497A4D8383DA6F5D1A4331 /* Pods-AnimeFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFinder.release.xcconfig"; path = "Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder.release.xcconfig"; sourceTree = "<group>"; };
 		D73E92A9D3EC5694C83E4522 /* Pods_AnimeFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F801B31F2551AE5000D5C320 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F81DA315254FEB3100E51D59 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		F84AB64A254D6EB800C8D58F /* AnimeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F84AB64D254D6EB800C8D58F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				F84AB64F254D6EB800C8D58F /* SceneDelegate.swift */,
 				F8BC8C35254D7967007F85BD /* Controller */,
 				F84AB653254D6EB800C8D58F /* Main.storyboard */,
+				F801B31F2551AE5000D5C320 /* GoogleService-Info.plist */,
 				F84AB656254D6EBC00C8D58F /* Assets.xcassets */,
 				F84AB658254D6EBC00C8D58F /* LaunchScreen.storyboard */,
 				F84AB65B254D6EBC00C8D58F /* Info.plist */,
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F84AB65A254D6EBC00C8D58F /* LaunchScreen.storyboard in Resources */,
+				F801B3202551AE5000D5C320 /* GoogleService-Info.plist in Resources */,
 				F84AB657254D6EBC00C8D58F /* Assets.xcassets in Resources */,
 				F84AB655254D6EB800C8D58F /* Main.storyboard in Resources */,
 			);

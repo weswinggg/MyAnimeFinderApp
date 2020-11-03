@@ -21,7 +21,7 @@ struct AnimeSearch: Decodable {
         
         let episodes: Int
         let score: Double
-        let rated: String
+        let rated: String?
         
     }
     

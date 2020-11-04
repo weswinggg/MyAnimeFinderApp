@@ -7,6 +7,7 @@
 
 import UIKit
 import Poi
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
             
@@ -14,10 +15,21 @@ class HomeViewController: UIViewController {
     
     var searchResults = [AnimeSearch.Result]()
     var images = [UIImage]()
+    var genreFilter = [String]()
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var testButton: UIButton!
     @IBOutlet weak var genreFilterView: UIView!
+    
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch  {
+            print(error)
+        }
+    }
     
     @IBAction func testPressed(_ sender: UIButton) {
         let searchText = searchTextField.text ?? ""

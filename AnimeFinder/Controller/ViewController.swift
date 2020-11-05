@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func loginPressed(_ sender: UIButton) {
         
@@ -24,6 +26,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        registerButton.layer.borderWidth = CGFloat(2)
+        registerButton.layer.borderColor = UIColor(named: "BrandWhite")?.cgColor
+        registerButton.layer.cornerRadius = CGFloat(9)
+        
+        loginButton.layer.cornerRadius = CGFloat(9)
     }
     
     override func viewWillAppear(_ animated: Bool) {

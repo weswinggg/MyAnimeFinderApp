@@ -19,7 +19,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var testButton: UIButton!
-    @IBOutlet weak var genreFilterView: UIView!
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
         

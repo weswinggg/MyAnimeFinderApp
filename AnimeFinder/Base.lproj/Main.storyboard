@@ -284,65 +284,107 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sbn-hh-Mrk">
-                                <rect key="frame" x="57" y="357" width="300" height="34"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <color key="tintColor" name="AccentColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAn-ok-w3x">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCc-7x-J8Z">
+                                        <rect key="frame" x="20" y="140" width="374" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2GS-62-iYh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
+                                        <color key="textColor" name="BrandWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEF-nt-Ymg">
+                                        <rect key="frame" x="20" y="190" width="374" height="50"/>
+                                        <string key="text">Let’s get you something
+to watch.</string>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
+                                        <color key="textColor" name="BrandWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sbn-hh-Mrk">
+                                        <rect key="frame" x="20" y="280" width="374" height="35"/>
+                                        <color key="backgroundColor" name="BrandBlue"/>
+                                        <color key="tintColor" name="BrandLightBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="NzQ-qV-5XB"/>
+                                        </constraints>
+                                        <color key="textColor" name="BrandWhite"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R6M-MX-ppd">
+                                        <rect key="frame" x="20" y="365" width="374" height="35"/>
+                                        <color key="backgroundColor" name="BrandBlue"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="g7I-Ex-CAB"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" name="BrandBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ahL-Zv-4UT"/>
-                                    <constraint firstAttribute="width" constant="300" id="d7F-7O-cDR"/>
+                                    <constraint firstAttribute="trailing" secondItem="OCc-7x-J8Z" secondAttribute="trailing" constant="20" id="4Pj-BN-VmN"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sbn-hh-Mrk" secondAttribute="trailing" constant="20" id="4Ql-Nc-PyQ"/>
+                                    <constraint firstItem="R6M-MX-ppd" firstAttribute="top" secondItem="Sbn-hh-Mrk" secondAttribute="bottom" constant="50" id="5R0-yl-aWs"/>
+                                    <constraint firstItem="Sbn-hh-Mrk" firstAttribute="leading" secondItem="oAn-ok-w3x" secondAttribute="leading" constant="20" id="Ard-ms-Gog"/>
+                                    <constraint firstItem="NEF-nt-Ymg" firstAttribute="leading" secondItem="oAn-ok-w3x" secondAttribute="leading" constant="20" id="BU6-vX-QJP"/>
+                                    <constraint firstItem="OCc-7x-J8Z" firstAttribute="leading" secondItem="oAn-ok-w3x" secondAttribute="leading" constant="20" id="Kmx-hF-U06"/>
+                                    <constraint firstItem="NEF-nt-Ymg" firstAttribute="top" secondItem="OCc-7x-J8Z" secondAttribute="bottom" constant="20" id="NvD-ut-Ube"/>
+                                    <constraint firstItem="OCc-7x-J8Z" firstAttribute="top" secondItem="oAn-ok-w3x" secondAttribute="top" constant="140" id="Obo-ye-NmX"/>
+                                    <constraint firstAttribute="bottom" secondItem="R6M-MX-ppd" secondAttribute="bottom" constant="100" id="aRX-B5-Wwe"/>
+                                    <constraint firstItem="R6M-MX-ppd" firstAttribute="leading" secondItem="oAn-ok-w3x" secondAttribute="leading" constant="20" id="cxm-dp-0Cd"/>
+                                    <constraint firstAttribute="trailing" secondItem="R6M-MX-ppd" secondAttribute="trailing" constant="20" id="dhL-M0-H4v"/>
+                                    <constraint firstAttribute="height" constant="500" id="shQ-do-HHs"/>
+                                    <constraint firstAttribute="trailing" secondItem="NEF-nt-Ymg" secondAttribute="trailing" constant="20" id="zui-u2-OMe"/>
                                 </constraints>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R6M-MX-ppd">
-                                <rect key="frame" x="57" y="431" width="300" height="34"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <color key="tintColor" name="AccentColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnK-fP-ihF">
+                                <rect key="frame" x="50" y="722" width="314" height="60"/>
+                                <color key="backgroundColor" name="BrandBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="15o-KB-arO"/>
+                                    <constraint firstAttribute="height" constant="60" id="Nei-58-Okt"/>
                                 </constraints>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDH-0p-KzS">
-                                <rect key="frame" x="57" y="565" width="300" height="36"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="6oh-S4-fhl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
                                 <state key="normal" title="Log In">
-                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                    <color key="titleColor" name="BrandWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginPressed:" destination="GLR-Hh-LzJ" eventType="touchUpInside" id="Z1l-Re-hWa"/>
+                                    <action selector="loginPressed:" destination="GLR-Hh-LzJ" eventType="touchUpInside" id="mNf-8w-sgN"/>
+                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vYc-sr-T6e"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ye5-G9-Uh6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fDH-0p-KzS" firstAttribute="centerX" secondItem="BAb-hW-XkU" secondAttribute="centerX" id="BC4-KN-XWz"/>
-                            <constraint firstItem="Sbn-hh-Mrk" firstAttribute="centerX" secondItem="BAb-hW-XkU" secondAttribute="centerX" id="Fzn-fN-z6i"/>
-                            <constraint firstItem="R6M-MX-ppd" firstAttribute="centerY" secondItem="BAb-hW-XkU" secondAttribute="centerY" id="dqQ-TV-S6S"/>
-                            <constraint firstItem="R6M-MX-ppd" firstAttribute="centerX" secondItem="BAb-hW-XkU" secondAttribute="centerX" id="jyn-bA-kMu"/>
-                            <constraint firstItem="R6M-MX-ppd" firstAttribute="top" secondItem="Sbn-hh-Mrk" secondAttribute="bottom" constant="40" id="lZM-ww-224"/>
-                            <constraint firstItem="fDH-0p-KzS" firstAttribute="top" secondItem="R6M-MX-ppd" secondAttribute="bottom" constant="100" id="x02-m1-PZB"/>
+                            <constraint firstItem="Ye5-G9-Uh6" firstAttribute="trailing" secondItem="GnK-fP-ihF" secondAttribute="trailing" constant="50" id="4Cv-Zy-Ciq"/>
+                            <constraint firstItem="oAn-ok-w3x" firstAttribute="leading" secondItem="BAb-hW-XkU" secondAttribute="leading" id="7fd-Jd-oK0"/>
+                            <constraint firstItem="GnK-fP-ihF" firstAttribute="centerX" secondItem="BAb-hW-XkU" secondAttribute="centerX" id="A8G-mg-vrV"/>
+                            <constraint firstAttribute="trailing" secondItem="oAn-ok-w3x" secondAttribute="trailing" id="B4B-VT-gta"/>
+                            <constraint firstItem="oAn-ok-w3x" firstAttribute="top" secondItem="BAb-hW-XkU" secondAttribute="top" id="Dgm-9L-T4H"/>
+                            <constraint firstItem="Ye5-G9-Uh6" firstAttribute="bottom" secondItem="GnK-fP-ihF" secondAttribute="bottom" constant="80" id="qSv-SH-ELB"/>
+                            <constraint firstItem="GnK-fP-ihF" firstAttribute="leading" secondItem="Ye5-G9-Uh6" secondAttribute="leading" constant="50" id="tQp-5R-mxa"/>
+                            <constraint firstItem="oAn-ok-w3x" firstAttribute="centerX" secondItem="BAb-hW-XkU" secondAttribute="centerX" id="u87-7q-oS2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5Sd-eS-TDn"/>
                     <connections>
                         <outlet property="emailField" destination="Sbn-hh-Mrk" id="rDf-UI-NLs"/>
+                        <outlet property="formView" destination="oAn-ok-w3x" id="q0o-fG-Acx"/>
+                        <outlet property="loginButton" destination="GnK-fP-ihF" id="tms-Wy-whC"/>
                         <outlet property="passwordField" destination="R6M-MX-ppd" id="c6q-aX-NOs"/>
                         <segue destination="UF8-2W-Phv" kind="show" identifier="LoginToHome" id="rTS-El-4Oi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o16-0l-LvR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244.927536231884" y="-332.14285714285711"/>
+            <point key="canvasLocation" x="2243.4782608695655" y="-332.14285714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JM3-2l-Q4n">
@@ -364,7 +406,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pCf-AC-jsM"/>
+        <segue reference="rTS-El-4Oi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
@@ -372,6 +414,9 @@
         </namedColor>
         <namedColor name="BrandBlue">
             <color red="0.24705882352941178" green="0.44705882352941179" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrandLightBlue">
+            <color red="0.85882352941176465" green="0.88627450980392153" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrandWhite">
             <color red="0.97647058823529409" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

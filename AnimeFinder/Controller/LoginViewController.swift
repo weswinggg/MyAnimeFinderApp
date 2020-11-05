@@ -12,7 +12,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var formView: UIView!
     
+    @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginPressed(_ sender: UIButton) {
         
         if let email = emailField.text, let password = passwordField.text {
@@ -32,7 +34,24 @@ class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         // code here after view loads
+        
+        navigationController?.navigationBar.barTintColor = UIColor(named: "BrandBlue")
+        navigationController?.navigationBar.tintColor = UIColor(named: "BrandWhite")
+        
+        emailField.setUnderLine()
+        passwordField.setUnderLine()
+        
+        formView.layer.cornerRadius = CGFloat(43)
+        loginButton.layer.cornerRadius = CGFloat(9)
     }
     
 }
 
+extension UITextField {
+    func setUnderLine() {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: self.frame.height + 3, width: self.frame.width, height: 1.0)
+        bottomLine.backgroundColor = UIColor(named: "BrandWhite")?.cgColor
+        self.layer.addSublayer(bottomLine)
+    }
+}

@@ -8,17 +8,34 @@
 import UIKit
 
 class MyTextField: UITextField {
-
-    func setForm(secure: Bool = false) {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func loadLayout() {
         font = UIFont(name: kFontRegular, size: 25)
         textColor = kBrandWhite
         tintColor = kBrandBlueGray
-        minimumFontSize = 15
+        backgroundColor = .none
         borderStyle = .none
+        minimumFontSize = 15
         adjustsFontSizeToFitWidth = true
         autocorrectionType = .no
         autocapitalizationType = .none
-        isSecureTextEntry = secure
+        
     }
-
+    
+    func setUnderLine() {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: frame.height + 3, width: frame.width, height: 0.5)
+        bottomLine.backgroundColor = kBrandWhite?.cgColor
+        
+        layer.addSublayer(bottomLine)
+    }
 }

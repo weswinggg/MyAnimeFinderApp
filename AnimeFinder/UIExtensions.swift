@@ -52,13 +52,3 @@ extension UIView {
 
     }
 }
-
-//MARK: UITextField to Set Underline 
-extension UITextField {
-    func setUnderLine() {
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0.0, y: self.frame.height + 3, width: self.frame.width, height: 0.5)
-        bottomLine.backgroundColor = UIColor(named: "BrandWhite")?.cgColor
-        self.layer.addSublayer(bottomLine)
-    }
-}

@@ -38,7 +38,6 @@ class LoginView: UIView {
     private let emailField: MyTextField = {
         let textField = MyTextField()
         textField.placeholder = "Email"
-        textField.setForm()
         textField.frame = CGRect(x: 0, y: 0, width: 330, height: 40)
         textField.setUnderLine()
         return textField
@@ -47,7 +46,7 @@ class LoginView: UIView {
     private let passwordField: MyTextField = {
         let textField = MyTextField()
         textField.placeholder = "Password"
-        textField.setForm(secure: true)
+        textField.isSecureTextEntry = true
         textField.frame = CGRect(x: 0, y: 0, width: 330, height: 40)
         textField.setUnderLine()
         return textField

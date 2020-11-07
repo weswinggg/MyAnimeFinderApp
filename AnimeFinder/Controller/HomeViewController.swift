@@ -17,53 +17,30 @@ class HomeViewController: UIViewController {
     var images = [UIImage]()
     var genreFilter = [String]()
   
-    /*
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var testButton: UIButton!
-    
-    @IBAction func testPressed(_ sender: UIButton) {
-        let searchText = searchTextField.text ?? ""
-        animeManager.searchTitle(with: searchText)
-    }
-    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.hidesBackButton = true
-        navigationController?.navigationBar.backgroundColor = kBrandBlue
-        navigationController?.navigationBar.tintColor = kBrandWhite
-        
         let logoutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logoutPressed))
         
+        navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = logoutBarButton
+
+        navigationController?.navigationBar.backgroundColor = kBrandBlue
+        navigationController?.navigationBar.tintColor = kBrandWhite
         
         let homeView = HomeView()
         view.addSubview(homeView)
         
         homeView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
-        /*
+        
+        homeView.delegate = self
+        
         animeManager.delegate = self
+        /*
         let genres = animeManager.getGenres()
         print(genres)
         */
     }
-    
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let destination = segue.destination as! ResultsViewController
-        destination.results = searchResults
-        images = [UIImage]()
-        
-        for i in searchResults {
-            let image = animeManager.getImage(with: i.image_url)
-            images.append(image)
-        }
-        
-        destination.images = images
-        
-    }
-    */
     
     @objc func logoutPressed() {
         do {
@@ -78,9 +55,28 @@ class HomeViewController: UIViewController {
 extension HomeViewController: MyAnimeManagerDelegate {
     func didSearchComplete(with data: AnimeSearch) {
         searchResults = data.results
+        print(searchResults)
+        DispatchQueue.main.async { [self] in
+            let resultsVC = ResultsViewController()
+            resultsVC.results = searchResults
+            images = [UIImage]()
 
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "SearchToResults", sender: self)
+            for i in searchResults {
+                print(i.title)
+                let image = animeManager.getImage(with: i.image_url)
+                images.append(image)
+            }
+            
+            resultsVC.images = images
+            
+            navigationController?.pushViewController(resultsVC, animated: true)
         }
+    }
+}
+
+extension HomeViewController: HomeViewDelegate {
+    func homeView(_ view: HomeView, didTapSearchButton: UIButton) {
+        let searchText = view.searchText
+        animeManager.searchTitle(with: searchText)
     }
 }

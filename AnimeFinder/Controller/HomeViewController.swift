@@ -55,7 +55,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController: MyAnimeManagerDelegate {
     func didSearchComplete(with data: AnimeSearch) {
         searchResults = data.results
-        print(searchResults)
         DispatchQueue.main.async { [self] in
             let resultsVC = ResultsViewController()
             resultsVC.results = searchResults

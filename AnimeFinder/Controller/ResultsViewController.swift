@@ -9,9 +9,7 @@ import UIKit
 import Poi
 
 class ResultsViewController: UIViewController {
-    
-    @IBOutlet weak var poiView: PoiView!
-    
+        
     var results = [AnimeSearch.Result]()
     var sampleCards = [UIView]()
     var images = [UIImage]()
@@ -62,10 +60,15 @@ class ResultsViewController: UIViewController {
             NSLayoutConstraint.activate(constraints)
         }
         
-        poiView.layer.shadowColor = UIColor.black.cgColor
-        poiView.layer.shadowRadius = 2
-        poiView.layer.shadowOffset = .zero
-        poiView.layer.shadowOpacity = 0.5
+        let resultsView = ResultsView()
+        let poiView = resultsView.poiView
+        view.addSubview(resultsView)
+        
+        resultsView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
+        
+        view.backgroundColor = kBrandBlue
+        
+        poiView.center = view.center
         poiView.dataSource = self
         poiView.delegate = self
     }

@@ -21,6 +21,8 @@
 		F88E9B2E255665C800A6FCB0 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B2D255665C800A6FCB0 /* MyTextView.swift */; };
 		F88E9B33255670AB00A6FCB0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B32255670AB00A6FCB0 /* WelcomeView.swift */; };
 		F88E9B372556785A00A6FCB0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B362556785A00A6FCB0 /* LoginView.swift */; };
+		F88E9B3A2556800500A6FCB0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B392556800500A6FCB0 /* RegisterView.swift */; };
+		F88E9B3D2556823B00A6FCB0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B3C2556823B00A6FCB0 /* HomeView.swift */; };
 		F89366DA2555A496002FBECB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89366D92555A496002FBECB /* WelcomeViewController.swift */; };
 		F89AA179254EC67E00E58CA6 /* MyAnimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89AA178254EC67E00E58CA6 /* MyAnimeManager.swift */; };
 		F89AA182254EED1C00E58CA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89AA181254EED1C00E58CA6 /* HomeViewController.swift */; };
@@ -48,6 +50,8 @@
 		F88E9B2D255665C800A6FCB0 /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		F88E9B32255670AB00A6FCB0 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		F88E9B362556785A00A6FCB0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F88E9B392556800500A6FCB0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		F88E9B3C2556823B00A6FCB0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F89366D92555A496002FBECB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		F89AA178254EC67E00E58CA6 /* MyAnimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeManager.swift; sourceTree = "<group>"; };
 		F89AA181254EED1C00E58CA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -106,10 +110,10 @@
 		F84AB64C254D6EB800C8D58F /* AnimeFinder */ = {
 			isa = PBXGroup;
 			children = (
-				F88E9B3125566BA600A6FCB0 /* View */,
 				F84AB64D254D6EB800C8D58F /* AppDelegate.swift */,
 				F84AB64F254D6EB800C8D58F /* SceneDelegate.swift */,
 				F89AA177254EC65100E58CA6 /* Model */,
+				F88E9B3125566BA600A6FCB0 /* View */,
 				F8BC8C35254D7967007F85BD /* Controller */,
 				F801B31F2551AE5000D5C320 /* GoogleService-Info.plist */,
 				F88E9B2525564FEF00A6FCB0 /* UIExtensions.swift */,
@@ -136,6 +140,8 @@
 				F88E9B1D2556471800A6FCB0 /* Components */,
 				F88E9B32255670AB00A6FCB0 /* WelcomeView.swift */,
 				F88E9B362556785A00A6FCB0 /* LoginView.swift */,
+				F88E9B392556800500A6FCB0 /* RegisterView.swift */,
+				F88E9B3C2556823B00A6FCB0 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +290,8 @@
 				F88E9B2625564FEF00A6FCB0 /* UIExtensions.swift in Sources */,
 				F8BC8C38254D7981007F85BD /* LoginViewController.swift in Sources */,
 				F8BC8C3B254D798F007F85BD /* RegisterViewController.swift in Sources */,
+				F88E9B3A2556800500A6FCB0 /* RegisterView.swift in Sources */,
+				F88E9B3D2556823B00A6FCB0 /* HomeView.swift in Sources */,
 				F89AA182254EED1C00E58CA6 /* HomeViewController.swift in Sources */,
 				F81DA316254FEB3100E51D59 /* ResultsViewController.swift in Sources */,
 				F88E9B33255670AB00A6FCB0 /* WelcomeView.swift in Sources */,

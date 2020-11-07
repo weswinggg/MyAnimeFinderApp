@@ -20,6 +20,7 @@
 		F88E9B2B25565B9600A6FCB0 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B2A25565B9600A6FCB0 /* MyTextField.swift */; };
 		F88E9B2E255665C800A6FCB0 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B2D255665C800A6FCB0 /* MyTextView.swift */; };
 		F88E9B33255670AB00A6FCB0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B32255670AB00A6FCB0 /* WelcomeView.swift */; };
+		F88E9B372556785A00A6FCB0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E9B362556785A00A6FCB0 /* LoginView.swift */; };
 		F89366DA2555A496002FBECB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89366D92555A496002FBECB /* WelcomeViewController.swift */; };
 		F89AA179254EC67E00E58CA6 /* MyAnimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89AA178254EC67E00E58CA6 /* MyAnimeManager.swift */; };
 		F89AA182254EED1C00E58CA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89AA181254EED1C00E58CA6 /* HomeViewController.swift */; };
@@ -46,6 +47,7 @@
 		F88E9B2A25565B9600A6FCB0 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
 		F88E9B2D255665C800A6FCB0 /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		F88E9B32255670AB00A6FCB0 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		F88E9B362556785A00A6FCB0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F89366D92555A496002FBECB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		F89AA178254EC67E00E58CA6 /* MyAnimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeManager.swift; sourceTree = "<group>"; };
 		F89AA181254EED1C00E58CA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				F88E9B1D2556471800A6FCB0 /* Components */,
 				F88E9B32255670AB00A6FCB0 /* WelcomeView.swift */,
+				F88E9B362556785A00A6FCB0 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				F84AB64E254D6EB800C8D58F /* AppDelegate.swift in Sources */,
 				F88E9B1F2556472900A6FCB0 /* MyButton.swift in Sources */,
 				F89AA186254EF4C800E58CA6 /* AnimeData.swift in Sources */,
+				F88E9B372556785A00A6FCB0 /* LoginView.swift in Sources */,
 				F84AB650254D6EB800C8D58F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

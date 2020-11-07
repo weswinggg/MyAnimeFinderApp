@@ -13,60 +13,40 @@ class LoginViewController: UIViewController {
     let welcomeTextView: UITextView = {
         let textView = UITextView()
         
-        let attributedText = NSMutableAttributedString(string: "Welcome back.", attributes: [NSAttributedString.Key.font : UIFont(name: "Hiragino Sans W6", size: 40) ?? UIFont.systemFont(ofSize: 40)])
+        let attributedText = NSMutableAttributedString(string: "Welcome back.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontBold, size: 40) ?? UIFont.systemFont(ofSize: 40)])
         
-        attributedText.append(NSMutableAttributedString(string: "\n\nLet’s get you something to watch.", attributes: [NSAttributedString.Key.font : UIFont(name: "Hiragino Sans W3", size: 25) ?? UIFont.systemFont(ofSize: 25)]))
+        attributedText.append(NSMutableAttributedString(string: "\n\nLet’s get you something to watch.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontRegular, size: 25) ?? UIFont.systemFont(ofSize: 25)]))
         
         textView.attributedText = attributedText
         textView.textAlignment = .left
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.backgroundColor = .none
-        textView.textColor = UIColor(named: "BrandWhite")
+        textView.textColor = kBrandWhite
         return textView
     }()
     
-    let emailField: UITextField = {
-        let textField = UITextField()
+    let emailField: MyTextField = {
+        let textField = MyTextField()
         textField.placeholder = "Email"
-        textField.font = UIFont(name: "Hiragino Sans W3", size: 25)
-        textField.textColor = UIColor(named: "BrandWhite")
-        textField.tintColor = UIColor(named: "BrandBlueGray")
-        textField.minimumFontSize = 15
-        textField.borderStyle = .none
-        textField.adjustsFontSizeToFitWidth = true
-        
+        textField.setForm()
         textField.frame = CGRect(x: 0, y: 0, width: 330, height: 40)
         textField.setUnderLine()
         return textField
     }()
     
-    let passwordField: UITextField = {
-        let textField = UITextField()
+    let passwordField: MyTextField = {
+        let textField = MyTextField()
         textField.placeholder = "Password"
-        textField.font = UIFont(name: "Hiragino Sans W3", size: 25)
-        textField.textColor = UIColor(named: "BrandWhite")
-        textField.tintColor = UIColor(named: "BrandBlueGray")
-        textField.minimumFontSize = 15
-        textField.borderStyle = .none
-        textField.adjustsFontSizeToFitWidth = true
-        textField.isSecureTextEntry = true
-        
+        textField.setForm(secure: true)
         textField.frame = CGRect(x: 0, y: 0, width: 330, height: 40)
         textField.setUnderLine()
         return textField
     }()
     
-    let loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Log in", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Hiragino Sans W3", size: 25)
-        button.setTitleColor(UIColor(named: "BrandWhite"), for: .normal)
-        button.backgroundColor = UIColor(named: "BrandBlue")
-        
-        button.layer.cornerRadius = 9
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor(named: "BrandWhite")?.cgColor
+    let loginButton: MyButton = {
+        let button = MyButton()
+        button.setSecondary(title: "Log in", size: 25)
         button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         return button
     }()
@@ -76,8 +56,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // code here after view loads
         
-        navigationController?.navigationBar.barTintColor = UIColor(named: "BrandBlue")
-        navigationController?.navigationBar.tintColor = UIColor(named: "BrandWhite")
+        navigationController?.navigationBar.barTintColor = kBrandBlue
+        navigationController?.navigationBar.tintColor = kBrandWhite
         
         setupLayout()
     }
@@ -88,7 +68,7 @@ class LoginViewController: UIViewController {
         let margins = view.layoutMarginsGuide
                     
         let formView = UIView()
-        formView.backgroundColor = UIColor(named: "BrandBlue")
+        formView.backgroundColor = kBrandBlue
         formView.layer.cornerRadius = 43
         
         view.addSubview(formView)

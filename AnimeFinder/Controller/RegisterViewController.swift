@@ -11,7 +11,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+    /*
     @IBAction func registerPressed(_ sender: UIButton) {
         
         if let email = emailField.text, let password = passwordField.text {
@@ -28,7 +28,7 @@ class RegisterViewController: UIViewController {
 
         print("Register successfully")
     }
-    
+    */
     override func viewDidLoad() {
         
         super.viewDidLoad()

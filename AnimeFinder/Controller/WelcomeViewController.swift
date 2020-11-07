@@ -9,28 +9,16 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
-    let loginButton: UIButton = {
-       let button = UIButton()
-        button.setTitle("Log in", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Hiragino Sans W3", size: 25)
-        button.setTitleColor(UIColor(named: "BrandBlue"), for: .normal)
-        button.backgroundColor = UIColor(named: "BrandWhite")
-
-        button.layer.cornerRadius = 9
+    let loginButton: MyButton = {
+       let button = MyButton()
+        button.setPrimary(title: "Log in", size: 25)
         button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         return button
     }()
 
-    let registerButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Register", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Hiragino Sans W3", size: 25)
-        button.setTitleColor(UIColor(named: "BrandWhite"), for: .normal)
-        button.backgroundColor = UIColor(named: "BrandBlue")
-        
-        button.layer.cornerRadius = 9
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor(named: "BrandWhite")?.cgColor
+    let registerButton: MyButton = {
+        let button = MyButton()
+        button.setSecondary(title: "Register", size: 25)
         button.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
         return button
     }()
@@ -51,7 +39,7 @@ class WelcomeViewController: UIViewController {
     }
 
     func setupLayout() {
-        view.backgroundColor = UIColor(named: "BrandBlue")
+        view.backgroundColor = kBrandBlue
         
         let margins = view.layoutMarginsGuide
                         
@@ -63,9 +51,9 @@ class WelcomeViewController: UIViewController {
         topHalfView.anchor(top: view.topAnchor, bottom: view.centerYAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
         
         let title = UILabel()
-        title.text = "My Anime Finder"
-        title.font = UIFont(name: "Hiragino Sans W6", size: 35)
-        title.textColor = UIColor(named: "BrandWhite")
+        title.text = kAppTitle
+        title.font = UIFont(name: kFontBold, size: 35)
+        title.textColor = kBrandWhite
         
         topHalfView.addSubview(title)
         
@@ -74,12 +62,14 @@ class WelcomeViewController: UIViewController {
         view.addSubview(registerButton)
         
         registerButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        registerButton.anchor(bottom: margins.bottomAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, padding: .init(top: 0, left: 20, bottom: 50, right: 20))
+        registerButton.widthAnchor.constraint(equalToConstant: 330).isActive = true
+        registerButton.anchor(bottom: margins.bottomAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, centerX: view.centerXAnchor, padding: .init(top: 0, left: 20, bottom: 50, right: 20), priority: 999)
         
         view.addSubview(loginButton)
 
         loginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        loginButton.anchor(bottom: registerButton.topAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, padding: UIEdgeInsets.init(top: 0, left: 20, bottom: 20, right: 20))
+        loginButton.widthAnchor.constraint(equalToConstant: 330).isActive = true
+        loginButton.anchor(bottom: registerButton.topAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, centerX: view.centerXAnchor, padding: UIEdgeInsets.init(top: 0, left: 20, bottom: 20, right: 20), priority: 999)
         
     }
 
@@ -95,35 +85,3 @@ class WelcomeViewController: UIViewController {
 
 }
 
-//MARK: UIView Extension for constraints
-extension UIView {
-    func anchor(top: NSLayoutYAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, leading: NSLayoutXAxisAnchor? = nil, trailing: NSLayoutXAxisAnchor? = nil, centerX: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, padding: UIEdgeInsets = .zero) {
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        if let top = top {
-            topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
-        }
-        
-        if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
-        }
-        
-        if let leading = leading {
-            leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
-        }
-        
-        if let trailing = trailing {
-            trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
-
-        }
-        
-        if let centerX = centerX {
-            centerXAnchor.constraint(equalTo: centerX).isActive = true
-        }
-        
-        if let centerY = centerY {
-            centerYAnchor.constraint(equalTo: centerY).isActive = true
-        }
-
-    }
-}

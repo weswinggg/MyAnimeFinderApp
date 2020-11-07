@@ -114,20 +114,23 @@ class LoginViewController: UIViewController {
         view.addSubview(loginButton)
         
         loginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        loginButton.anchor(bottom: margins.bottomAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, padding: .init(top: 0, left: 20, bottom: 50, right: 20))
+        loginButton.widthAnchor.constraint(lessThanOrEqualToConstant: 330).isActive = true
+        // Set priority to 999 to use width constraint first
+        loginButton.anchor(bottom: margins.bottomAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, centerX: view.centerXAnchor, padding: .init(top: 0, left: 20, bottom: 50, right: 20), priority: 999)
     }
     
     @objc func loginPressed(sender: UIButton) {
+        if let email = emailField.text, let password = passwordField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                if let err = error {
+                    print(err.localizedDescription)
+                } else {
+                    let homeVC = HomeViewController()
+                    self.navigationController?.pushViewController(homeVC, animated: true)
+                }
+            }
+        }
     }
     
 }
 
-//MARK: Set Underline for UITextField
-extension UITextField {
-    func setUnderLine() {
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0.0, y: self.frame.height + 3, width: self.frame.width, height: 1)
-        bottomLine.backgroundColor = UIColor(named: "BrandWhite")?.cgColor
-        self.layer.addSublayer(bottomLine)
-    }
-}

@@ -55,6 +55,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: MyAnimeManagerDelegate {
     func didSearchComplete(with data: AnimeSearch) {
         searchResults = data.results
+        
         DispatchQueue.main.async { [self] in
             let resultsVC = ResultsViewController()
             resultsVC.results = searchResults
@@ -70,6 +71,8 @@ extension HomeViewController: MyAnimeManagerDelegate {
             
             navigationController?.pushViewController(resultsVC, animated: true)
         }
+
+    
     }
 }
 

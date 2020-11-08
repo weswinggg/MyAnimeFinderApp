@@ -19,8 +19,8 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.tintColor = kBrandWhite
         
         let loginView = LoginView()
-        
         view.addSubview(loginView)
+        
         loginView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
         
         

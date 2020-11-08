@@ -14,6 +14,9 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         // code here after view loads
         
+        navigationController?.navigationBar.barTintColor = kBrandBlue
+        navigationController?.navigationBar.tintColor = kBrandWhite
+        
         let registerView = RegisterView()
         view.addSubview(registerView)
         

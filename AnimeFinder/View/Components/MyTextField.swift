@@ -19,12 +19,12 @@ class MyTextField: UITextField {
     }
     
     func loadLayout() {
-        font = UIFont(name: kFontRegular, size: 25)
+        font = UIFont(name: kFontRegular, size: 15)
         textColor = kBrandWhite
         tintColor = kBrandBlueGray
         backgroundColor = .none
         borderStyle = .none
-        minimumFontSize = 15
+        minimumFontSize = 10
         adjustsFontSizeToFitWidth = true
         autocorrectionType = .no
         autocapitalizationType = .none

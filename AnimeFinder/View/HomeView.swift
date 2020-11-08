@@ -28,6 +28,7 @@ class HomeView: UIView {
         button.addTarget(self, action: #selector(searchPressed), for: .touchUpInside)
         
         button.setTitle("Searching...", for: .disabled)
+        button.addMyShadow()
         return button
     }()
         

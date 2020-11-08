@@ -51,12 +51,19 @@ extension UIView {
         }
 
     }
+    
+    func addMyShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 2
+        layer.shadowOffset = .zero
+        layer.shadowOpacity = 0.5
+    }
 }
 
 //MARK: UIButton extension to toggle disable button appearance
 extension UIButton {
     
-    func isEnabledToggle() {
+    func toggleMyButtonEnabled() {
         isEnabled = !isEnabled
         alpha = isEnabled ? 1 : 0.5
     }

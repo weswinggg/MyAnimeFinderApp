@@ -20,7 +20,7 @@ class MyButton: UIButton {
     func makeMyPrimary(title: String, size: CGFloat) {
         backgroundColor = kBrandWhite
         setTitleColor(kBrandBlue, for: .normal)
-        
+        addMyShadow()
         setMyValues(title, size)
     }
     
@@ -28,8 +28,6 @@ class MyButton: UIButton {
         
         backgroundColor = kBrandBlue
         setTitleColor(kBrandWhite, for: .normal)
-        layer.borderWidth = 2
-        layer.borderColor = kBrandWhite?.cgColor
         
         setMyValues(title, size)
     }
@@ -40,7 +38,6 @@ class MyButton: UIButton {
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont(name: fontRegular, size: size)
         layer.cornerRadius = 9
-        
     }
 
 }

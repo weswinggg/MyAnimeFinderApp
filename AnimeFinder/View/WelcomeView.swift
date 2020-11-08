@@ -22,6 +22,8 @@ class WelcomeView: UIView {
         let button = MyButton()
         button.makeMySecondary(title: "Register", size: 25)
         button.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = kBrandWhite?.cgColor
         return button
     }()
     

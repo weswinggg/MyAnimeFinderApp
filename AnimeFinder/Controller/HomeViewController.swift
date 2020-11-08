@@ -64,7 +64,7 @@ extension HomeViewController: MyAnimeManagerDelegate {
             resultsVC.results = searchResults
             resultsVC.images = images
             
-            homeView.searchButton.isEnabledToggle()
+            homeView.searchButton.toggleMyButtonEnabled()
             navigationController?.pushViewController(resultsVC, animated: true)
         }
     }
@@ -76,7 +76,7 @@ extension HomeViewController: HomeViewDelegate {
         
         if let searchText = view.searchText, view.searchText != "" {
             animeManager.searchTitle(with: searchText)
-            didTapSearchButton.isEnabledToggle()
+            didTapSearchButton.toggleMyButtonEnabled()
         }
     }
 }

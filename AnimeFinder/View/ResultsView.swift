@@ -23,12 +23,11 @@ class ResultsView: UIView {
     
     private func layoutView() {
         addSubview(poiView)
-        poiView.frame = CGRect(x: 0, y: 0, width: 300, height: 600)
+        backgroundColor = kBrandBlue
+        let width = frame.width * 0.7
+        let height = frame.height * 0.7
+        poiView.frame = CGRect(x: 0, y: 0, width: width, height: height)
 
-        poiView.layer.shadowColor = UIColor.black.cgColor
-        poiView.layer.shadowRadius = 2
-        poiView.layer.shadowOffset = .zero
-        poiView.layer.shadowOpacity = 0.5
-        
+        poiView.addMyShadow()
     }
 }

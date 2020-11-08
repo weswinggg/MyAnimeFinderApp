@@ -20,12 +20,12 @@ class ResultsViewController: UIViewController {
         for (i, anime) in results.enumerated() {
       
             let imageView = UIImageView(image: images[i])
-            imageView.contentMode = UIView.ContentMode.scaleAspectFill
+            imageView.contentMode = UIView.ContentMode.scaleToFill
             imageView.translatesAutoresizingMaskIntoConstraints = false
             
             let textView = UITextView()
             
-            let attributedText = NSMutableAttributedString(string: anime.title, attributes: [NSAttributedString.Key.font : UIFont(name: kFontBold, size: 25) ?? UIFont.systemFont(ofSize: 25)])
+            let attributedText = NSMutableAttributedString(string: anime.title, attributes: [NSAttributedString.Key.font : UIFont(name: kFontBold, size: 20) ?? UIFont.systemFont(ofSize: 20)])
             
             attributedText.append(NSMutableAttributedString(string: "\n\(anime.synopsis)", attributes: [NSAttributedString.Key.font : UIFont(name: kFontRegular, size: 15) ?? UIFont.systemFont(ofSize: 15)]))
             
@@ -43,14 +43,18 @@ class ResultsViewController: UIViewController {
             
             sampleCards[i].addSubview(imageView)
             
-            imageView.anchor(top: sampleCards[i].topAnchor)
-            imageView.widthAnchor.constraint(equalTo: sampleCards[i].widthAnchor).isActive = true
+            imageView.anchor(top: sampleCards[i].topAnchor, leading: sampleCards[i].leadingAnchor, trailing: sampleCards[i].trailingAnchor)
             imageView.heightAnchor.constraint(equalTo: sampleCards[i].heightAnchor, multiplier: 0.7).isActive = true
             
-            sampleCards[i].addSubview(textView)
+            let bottomView = UIView()
             
-            textView.anchor(bottom: sampleCards[i].bottomAnchor, leading: sampleCards[i].leadingAnchor, trailing: sampleCards[i].trailingAnchor, padding: .init(top: 0, left: 5, bottom: 5, right: 5))
-            textView.heightAnchor.constraint(lessThanOrEqualTo: sampleCards[i].heightAnchor, multiplier: 0.25).isActive = true
+            sampleCards[i].addSubview(bottomView)
+            
+            bottomView.anchor(top: imageView.bottomAnchor, bottom: sampleCards[i].bottomAnchor, leading: sampleCards[i].leadingAnchor, trailing: sampleCards[i].trailingAnchor)
+                        
+            bottomView.addSubview(textView)
+            
+            textView.anchor(leading: bottomView.leadingAnchor, trailing: bottomView.trailingAnchor, centerY: bottomView.centerYAnchor, padding: .init(top: 0, left: 5, bottom: 0, right: 5))
         }
         
         let resultsView = ResultsView(frame: view.bounds)

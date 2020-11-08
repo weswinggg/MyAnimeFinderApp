@@ -22,9 +22,9 @@ class LoginView: UIView {
     private let welcomeTextView: UITextView = {
         let textView = UITextView()
         
-        let attributedText = NSMutableAttributedString(string: "Welcome back.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontBold, size: 25) ?? UIFont.systemFont(ofSize: 25)])
+        let attributedText = NSMutableAttributedString(string: "Welcome back.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontBold, size: 30) ?? UIFont.systemFont(ofSize: 30)])
         
-        attributedText.append(NSMutableAttributedString(string: "\nLet’s get you something to watch.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontRegular, size: 15) ?? UIFont.systemFont(ofSize: 15)]))
+        attributedText.append(NSMutableAttributedString(string: "\nLet’s get you something to watch.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontRegular, size: 20) ?? UIFont.systemFont(ofSize: 20)]))
         
         textView.attributedText = attributedText
         textView.textAlignment = .left
@@ -38,7 +38,7 @@ class LoginView: UIView {
     private let emailField: MyTextField = {
         let textField = MyTextField()
         textField.placeholder = "Email"
-        textField.frame = CGRect(x: 0, y: 0, width: 330, height: 20)
+        textField.frame = CGRect(x: 0, y: 0, width: 330, height: 25)
         textField.setMyUndeline()
         return textField
     }()
@@ -47,7 +47,7 @@ class LoginView: UIView {
         let textField = MyTextField()
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
-        textField.frame = CGRect(x: 0, y: 0, width: 330, height: 20)
+        textField.frame = CGRect(x: 0, y: 0, width: 330, height: 25)
         textField.setMyUndeline()
         return textField
     }()

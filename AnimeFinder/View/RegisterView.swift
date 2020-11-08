@@ -22,9 +22,9 @@ class RegisterView: UIView {
     private let welcomeTextView: UITextView = {
         let textView = UITextView()
         
-        let attributedText = NSMutableAttributedString(string: "Create Account.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontBold, size: 25) ?? UIFont.systemFont(ofSize: 25)])
+        let attributedText = NSMutableAttributedString(string: "Create Account.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontBold, size: 30) ?? UIFont.systemFont(ofSize: 30)])
         
-        attributedText.append(NSMutableAttributedString(string: "\nLet’s set your new account and start finding.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontRegular, size: 15) ?? UIFont.systemFont(ofSize: 15)]))
+        attributedText.append(NSMutableAttributedString(string: "\nLet’s set your new account and start finding.", attributes: [NSAttributedString.Key.font : UIFont(name: kFontRegular, size: 20) ?? UIFont.systemFont(ofSize: 20)]))
         
         textView.attributedText = attributedText
         textView.textAlignment = .left
@@ -36,14 +36,14 @@ class RegisterView: UIView {
     }()
     
     private let emailField: MyTextField = {
-        let textField = MyTextField(frame: CGRect(x: 0, y: 0, width: 330, height: 20))
+        let textField = MyTextField(frame: CGRect(x: 0, y: 0, width: 330, height: 25))
         textField.placeholder = "Email"
         textField.setMyUndeline()
         return textField
     }()
     
     private let passwordField: MyTextField = {
-        let textField = MyTextField(frame: CGRect(x: 0, y: 0, width: 330, height: 20))
+        let textField = MyTextField(frame: CGRect(x: 0, y: 0, width: 330, height: 25))
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
         textField.setMyUndeline()

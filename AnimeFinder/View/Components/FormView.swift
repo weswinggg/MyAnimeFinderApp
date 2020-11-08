@@ -29,6 +29,7 @@ class FormView: UIView {
         addSubview(textView)
         
         let margins = layoutMarginsGuide
+        textView.widthAnchor.constraint(equalToConstant: 330).isActive = true
         textView.anchor(top: margins.topAnchor, bottom: centerYAnchor, centerX: centerXAnchor, padding: .init(top: 20, left: 0, bottom: -20, right: 0))
     }
     
@@ -37,14 +38,14 @@ class FormView: UIView {
         addSubview(emailField)
         
         emailField.widthAnchor.constraint(equalToConstant: 330).isActive = true
-        emailField.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        emailField.heightAnchor.constraint(equalToConstant: 25).isActive = true
         emailField.anchor(top: centerYAnchor, centerX: centerXAnchor, padding: .init(top: 20, left: 0, bottom: 0, right: 0))
         
         addSubview(passwordField)
 
         passwordField.widthAnchor.constraint(equalToConstant: 330).isActive = true
-        passwordField.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        passwordField.anchor(top: emailField.bottomAnchor, centerX: centerXAnchor, padding: .init(top: 20, left: 0, bottom: 0, right: 0))
+        passwordField.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        passwordField.anchor(top: emailField.bottomAnchor, centerX: centerXAnchor, padding: .init(top: 40, left: 0, bottom: 0, right: 0))
         
     }
 }

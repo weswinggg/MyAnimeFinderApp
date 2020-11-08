@@ -12,14 +12,11 @@
 
 import UIKit
 
-class MyAnimeManager {
+struct MyAnimeManager {
     
     var delegate: MyAnimeManagerDelegate?
     
     func searchTitle(with title: String) {
-        if title == "" {
-            return
-        }
         
         var urlString = "https://api.jikan.moe/v3/search/anime?q=\(title)&limit=10"
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -43,10 +40,20 @@ class MyAnimeManager {
     }
     
     func getImage(with urlString: String) -> UIImage {
-        let url = URL(string: urlString)
-        let data = try? Data(contentsOf: url!)
-        let imageView = UIImage(data: data!)
-        return imageView!
+        var imageView = UIImage()
+        
+        if let url = URL(string: urlString) {
+            do {
+                let data = try Data(contentsOf: url)
+                if let image  = UIImage(data: data) {
+                    imageView = image
+                }
+            } catch  {
+                print(error.localizedDescription)
+            }
+        }
+        
+        return imageView
     }
     
     func getGenres() -> [String] {
@@ -59,7 +66,7 @@ class MyAnimeManager {
         return genres
     }
     
-    func parseJSON<T: Decodable>(data: Data) -> T{
+    private func parseJSON<T: Decodable>(data: Data) -> T{
         let decoder = JSONDecoder()
         
         guard let decoded = try? decoder.decode(T.self, from: data) else {

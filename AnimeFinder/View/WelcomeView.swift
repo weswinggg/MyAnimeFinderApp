@@ -13,14 +13,14 @@ class WelcomeView: UIView {
 
     let loginButton: MyButton = {
        let button = MyButton()
-        button.setPrimary(title: "Log in", size: 25)
+        button.makeMyPrimary(title: "Log in", size: 25)
         button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         return button
     }()
 
     let registerButton: MyButton = {
         let button = MyButton()
-        button.setSecondary(title: "Register", size: 25)
+        button.makeMySecondary(title: "Register", size: 25)
         button.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
         return button
     }()
@@ -79,6 +79,7 @@ class WelcomeView: UIView {
     
 }
 
+//MARK: WelcomeViewDelegate Protocol
 protocol WelcomeViewDelegate {
     func didTapLoginButton(_ sender: UIButton)
     func didTapRegisterButton(_ sender: UIButton)

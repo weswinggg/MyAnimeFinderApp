@@ -11,7 +11,6 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         // code here after view loads
         
@@ -22,7 +21,6 @@ class LoginViewController: UIViewController {
         view.addSubview(loginView)
         
         loginView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
-        
         
         loginView.delegate = self
     }

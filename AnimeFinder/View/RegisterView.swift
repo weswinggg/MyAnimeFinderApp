@@ -36,25 +36,23 @@ class RegisterView: UIView {
     }()
     
     private let emailField: MyTextField = {
-        let textField = MyTextField()
+        let textField = MyTextField(frame: CGRect(x: 0, y: 0, width: 330, height: 20))
         textField.placeholder = "Email"
-        textField.frame = CGRect(x: 0, y: 0, width: 330, height: 20)
-        textField.setUnderLine()
+        textField.setMyUndeline()
         return textField
     }()
     
     private let passwordField: MyTextField = {
-        let textField = MyTextField()
+        let textField = MyTextField(frame: CGRect(x: 0, y: 0, width: 330, height: 20))
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
-        textField.frame = CGRect(x: 0, y: 0, width: 330, height: 20)
-        textField.setUnderLine()
+        textField.setMyUndeline()
         return textField
     }()
     
     private let registerButton: MyButton = {
         let button = MyButton()
-        button.setSecondary(title: "Register", size: 25)
+        button.makeMySecondary(title: "Register", size: 25)
         button.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
         return button
     }()
@@ -78,8 +76,8 @@ class RegisterView: UIView {
         formView.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor)
         formView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
         
-        formView.addHeadingTextView(welcomeTextView)
-        formView.addEmailPasswordFields(emailField: emailField, passwordField: passwordField)
+        formView.addMyHeadingTextView(welcomeTextView)
+        formView.addMyEmailPasswordFields(emailField: emailField, passwordField: passwordField)
         
         addSubview(registerButton)
         
@@ -95,6 +93,7 @@ class RegisterView: UIView {
     
 }
 
+//MARK: RegisterViewDelegate Protocol
 protocol RegisterViewDelegate {
     func registerView(_ view: RegisterView, didTapRegisterButton: UIButton)
 }

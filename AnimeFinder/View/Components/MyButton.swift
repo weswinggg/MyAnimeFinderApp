@@ -9,14 +9,22 @@ import UIKit
 
 class MyButton: UIButton {
     
-    func setPrimary(title: String, size: CGFloat) {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func makeMyPrimary(title: String, size: CGFloat) {
         backgroundColor = kBrandWhite
         setTitleColor(kBrandBlue, for: .normal)
         
         setMyValues(title, size)
     }
     
-    func setSecondary(title: String, size: CGFloat) {
+    func makeMySecondary(title: String, size: CGFloat) {
         
         backgroundColor = kBrandBlue
         setTitleColor(kBrandWhite, for: .normal)
@@ -28,7 +36,7 @@ class MyButton: UIButton {
     
     private func setMyValues(_ title: String, _ size: CGFloat) {
         
-        let fontRegular: String = "Hiragino Sans W3"
+        let fontRegular: String = kFontRegular
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont(name: fontRegular, size: size)
         layer.cornerRadius = 9

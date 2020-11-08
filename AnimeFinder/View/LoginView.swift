@@ -39,7 +39,7 @@ class LoginView: UIView {
         let textField = MyTextField()
         textField.placeholder = "Email"
         textField.frame = CGRect(x: 0, y: 0, width: 330, height: 20)
-        textField.setUnderLine()
+        textField.setMyUndeline()
         return textField
     }()
     
@@ -48,13 +48,13 @@ class LoginView: UIView {
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
         textField.frame = CGRect(x: 0, y: 0, width: 330, height: 20)
-        textField.setUnderLine()
+        textField.setMyUndeline()
         return textField
     }()
     
     private let loginButton: MyButton = {
         let button = MyButton()
-        button.setSecondary(title: "Log in", size: 25)
+        button.makeMySecondary(title: "Log in", size: 25)
         button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         return button
     }()
@@ -79,8 +79,8 @@ class LoginView: UIView {
         formView.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor)
         formView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
         
-        formView.addHeadingTextView(welcomeTextView)
-        formView.addEmailPasswordFields(emailField: emailField, passwordField: passwordField)
+        formView.addMyHeadingTextView(welcomeTextView)
+        formView.addMyEmailPasswordFields(emailField: emailField, passwordField: passwordField)
                                 
         addSubview(loginButton)
         
@@ -96,6 +96,7 @@ class LoginView: UIView {
     
 }
 
+//MARK: LoginViewDelegate Protocol
 protocol LoginViewDelegate {
     func loginView(_ view: LoginView, didTapLoginButton: UIButton)
 }

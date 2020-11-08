@@ -29,17 +29,6 @@ class WelcomeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }
-
-    @objc func loginPressed(sender: UIButton) {
-        let loginVC = LoginViewController()
-        navigationController?.pushViewController(loginVC, animated: true)
-    }
-
-    @objc func registerPressed(sender: UIButton) {
-        let registerVC = RegisterViewController()
-        navigationController?.pushViewController(registerVC, animated: true)
-    }
-
 }
 
 extension WelcomeViewController: WelcomeViewDelegate {

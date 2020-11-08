@@ -11,8 +11,8 @@ class HomeView: UIView {
     
     var delegate: HomeViewDelegate?
     
-    var searchText: String {
-        return searchTextField.text ?? ""
+    var searchText: String? {
+        return searchTextField.text
     }
     
     private let searchTextField: MyTextField = {
@@ -22,10 +22,12 @@ class HomeView: UIView {
         return textField
     }()
     
-    private let searchButton: MyButton = {
+    let searchButton: MyButton = {
         let button = MyButton()
-        button.setSecondary(title: "Search", size: 25)
+        button.makeMySecondary(title: "Search", size: 25)
         button.addTarget(self, action: #selector(searchPressed), for: .touchUpInside)
+        
+        button.setTitle("Searching...", for: .disabled)
         return button
     }()
         
@@ -80,6 +82,7 @@ class HomeView: UIView {
 
 }
 
+//MARK: HomeViewDelegate Protocol
 protocol HomeViewDelegate {
     func homeView(_ view: HomeView, didTapSearchButton: UIButton)
 }

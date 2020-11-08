@@ -35,7 +35,7 @@ class ResultsViewController: UIViewController {
             description.textColor = .black
             description.numberOfLines = 4
                         
-            sampleCards.append(UIView(frame: self.view.bounds))
+            sampleCards.append(UIView(frame: view.bounds))
             sampleCards[i].backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             sampleCards[i].layer.cornerRadius = 20
             sampleCards[i].clipsToBounds = true

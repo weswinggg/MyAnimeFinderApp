@@ -11,15 +11,16 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController {
             
-    let animeManager = MyAnimeManager()
+    var animeManager = MyAnimeManager()
     
     var searchResults = [AnimeSearch.Result]()
     var images = [UIImage]()
     var genreFilter = [String]()
+    
+    private let homeView = HomeView()
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let logoutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logoutPressed))
         
         navigationItem.hidesBackButton = true
@@ -28,18 +29,12 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = kBrandBlue
         navigationController?.navigationBar.tintColor = kBrandWhite
         
-        let homeView = HomeView()
         view.addSubview(homeView)
         
         homeView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
         
         homeView.delegate = self
-        
         animeManager.delegate = self
-        /*
-        let genres = animeManager.getGenres()
-        print(genres)
-        */
     }
     
     @objc func logoutPressed() {
@@ -52,33 +47,36 @@ class HomeViewController: UIViewController {
     }
 }
 
+//MARK: MyAnimeManagerDelegate extension
 extension HomeViewController: MyAnimeManagerDelegate {
     func didSearchComplete(with data: AnimeSearch) {
         searchResults = data.results
         
+        images = [UIImage]()
+        
+        for i in searchResults {
+            let image = animeManager.getImage(with: i.image_url)
+            images.append(image)
+        }
+        
         DispatchQueue.main.async { [self] in
             let resultsVC = ResultsViewController()
             resultsVC.results = searchResults
-            images = [UIImage]()
-
-            for i in searchResults {
-                print(i.title)
-                let image = animeManager.getImage(with: i.image_url)
-                images.append(image)
-            }
-            
             resultsVC.images = images
             
+            homeView.searchButton.isEnabledToggle()
             navigationController?.pushViewController(resultsVC, animated: true)
         }
-
-    
     }
 }
 
+//MARK: HomeViewDelegate extension
 extension HomeViewController: HomeViewDelegate {
     func homeView(_ view: HomeView, didTapSearchButton: UIButton) {
-        let searchText = view.searchText
-        animeManager.searchTitle(with: searchText)
+        
+        if let searchText = view.searchText, view.searchText != "" {
+            animeManager.searchTitle(with: searchText)
+            didTapSearchButton.isEnabledToggle()
+        }
     }
 }

@@ -52,3 +52,12 @@ extension UIView {
 
     }
 }
+
+//MARK: UIButton extension to toggle disable button appearance
+extension UIButton {
+    
+    func isEnabledToggle() {
+        isEnabled = !isEnabled
+        alpha = isEnabled ? 1 : 0.5
+    }
+}

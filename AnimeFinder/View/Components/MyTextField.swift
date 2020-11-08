@@ -18,7 +18,7 @@ class MyTextField: UITextField {
         super.init(coder: coder)
     }
     
-    func loadLayout() {
+    private func loadLayout() {
         font = UIFont(name: kFontRegular, size: 15)
         textColor = kBrandWhite
         tintColor = kBrandBlueGray
@@ -28,10 +28,9 @@ class MyTextField: UITextField {
         adjustsFontSizeToFitWidth = true
         autocorrectionType = .no
         autocapitalizationType = .none
-        
     }
     
-    func setUnderLine() {
+    func setMyUndeline() {
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0.0, y: frame.height + 3, width: frame.width, height: 0.5)
         bottomLine.backgroundColor = kBrandWhite?.cgColor

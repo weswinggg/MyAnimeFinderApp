@@ -50,11 +50,12 @@ class ResultsViewController: UIViewController {
             
             sampleCards[i].addSubview(bottomView)
             
-            bottomView.anchor(top: imageView.bottomAnchor, bottom: sampleCards[i].bottomAnchor, leading: sampleCards[i].leadingAnchor, trailing: sampleCards[i].trailingAnchor)
+            bottomView.anchor(bottom: sampleCards[i].bottomAnchor, leading: sampleCards[i].leadingAnchor, trailing: sampleCards[i].trailingAnchor)
+            bottomView.heightAnchor.constraint(equalTo: sampleCards[i].heightAnchor, multiplier: 0.3).isActive = true
                         
             bottomView.addSubview(textView)
             
-            textView.anchor(leading: bottomView.leadingAnchor, trailing: bottomView.trailingAnchor, centerY: bottomView.centerYAnchor, padding: .init(top: 0, left: 5, bottom: 0, right: 5))
+            textView.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, trailing: bottomView.trailingAnchor, padding: .init(top: 0, left: 5, bottom: 0, right: 5))
         }
         
         let resultsView = ResultsView(frame: view.bounds)

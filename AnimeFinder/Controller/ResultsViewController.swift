@@ -13,7 +13,6 @@ class ResultsViewController: UIViewController {
     var results = [AnimeSearch.Result]()
     var sampleCards = [UIView]()
     var images = [UIImage]()
-    var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,43 +23,37 @@ class ResultsViewController: UIViewController {
             imageView.contentMode = UIView.ContentMode.scaleAspectFill
             imageView.translatesAutoresizingMaskIntoConstraints = false
             
-            let title = UILabel()
-            title.translatesAutoresizingMaskIntoConstraints = false
-            title.text = anime.title
-            title.textColor = .black
+            let textView = UITextView()
             
-            let description = UILabel()
-            description.translatesAutoresizingMaskIntoConstraints = false
-            description.text = anime.synopsis
-            description.textColor = .black
-            description.numberOfLines = 4
-                        
+            let attributedText = NSMutableAttributedString(string: anime.title, attributes: [NSAttributedString.Key.font : UIFont(name: kFontBold, size: 25) ?? UIFont.systemFont(ofSize: 25)])
+            
+            attributedText.append(NSMutableAttributedString(string: "\n\(anime.synopsis)", attributes: [NSAttributedString.Key.font : UIFont(name: kFontRegular, size: 15) ?? UIFont.systemFont(ofSize: 15)]))
+            
+            textView.attributedText = attributedText
+            textView.textAlignment = .left
+            textView.isEditable = false
+            textView.isScrollEnabled = false
+            textView.backgroundColor = .none
+            textView.textColor = kBrandBlue
+            
             sampleCards.append(UIView(frame: view.bounds))
-            sampleCards[i].backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            sampleCards[i].backgroundColor = kBrandWhite
             sampleCards[i].layer.cornerRadius = 20
             sampleCards[i].clipsToBounds = true
             
             sampleCards[i].addSubview(imageView)
-            sampleCards[i].addSubview(title)
-            sampleCards[i].addSubview(description)
             
-            let constraints = [
-                imageView.topAnchor.constraint(equalTo: sampleCards[i].topAnchor),
-                imageView.widthAnchor.constraint(equalTo: sampleCards[i].widthAnchor),
-                imageView.heightAnchor.constraint(equalTo: sampleCards[i].heightAnchor, multiplier: CGFloat(0.7)),
-                
-                title.heightAnchor.constraint(equalToConstant: CGFloat(50)),
-                title.centerXAnchor.constraint(equalTo: sampleCards[i].centerXAnchor),
-                title.bottomAnchor.constraint(equalTo: description.topAnchor, constant: CGFloat(-20)),
-                
-                description.widthAnchor.constraint(equalTo: sampleCards[i].widthAnchor),
-                description.bottomAnchor.constraint(equalTo: sampleCards[i].bottomAnchor, constant: CGFloat(-20))
-            ]
+            imageView.anchor(top: sampleCards[i].topAnchor)
+            imageView.widthAnchor.constraint(equalTo: sampleCards[i].widthAnchor).isActive = true
+            imageView.heightAnchor.constraint(equalTo: sampleCards[i].heightAnchor, multiplier: 0.7).isActive = true
             
-            NSLayoutConstraint.activate(constraints)
+            sampleCards[i].addSubview(textView)
+            
+            textView.anchor(bottom: sampleCards[i].bottomAnchor, leading: sampleCards[i].leadingAnchor, trailing: sampleCards[i].trailingAnchor, padding: .init(top: 0, left: 5, bottom: 5, right: 5))
+            textView.heightAnchor.constraint(lessThanOrEqualTo: sampleCards[i].heightAnchor, multiplier: 0.25).isActive = true
         }
         
-        let resultsView = ResultsView()
+        let resultsView = ResultsView(frame: view.bounds)
         let poiView = resultsView.poiView
         view.addSubview(resultsView)
         
@@ -87,9 +80,18 @@ extension ResultsViewController: PoiViewDataSource {
     func poi(_ poi: PoiView, viewForCardOverlayFor direction: SwipeDirection) -> UIImageView? {
         switch direction {
         case .right:
-            return nil
+            let thumbsup = UIImage(systemName: "hand.thumbsup")
+            thumbsup?.withTintColor(.green)
+            let imageView = UIImageView(image: thumbsup)
+            imageView.frame = CGRect(x: 0, y: 0, width: poi.frame.width, height: poi.frame.width)
+            imageView.tintColor = .green
+            return imageView
         case .left:
-            return nil
+            let thumbsdown = UIImage(systemName: "hand.thumbsdown")
+            let imageView = UIImageView(image: thumbsdown)
+            imageView.frame = CGRect(x: 0, y: 0, width: poi.frame.width, height: poi.frame.width)
+            imageView.tintColor = .red
+            return imageView
         }
     }
 
@@ -97,7 +99,6 @@ extension ResultsViewController: PoiViewDataSource {
 
 extension ResultsViewController: PoiViewDelegate {
     func poi(_ poi: PoiView, didSwipeCardAt: Int, in direction: SwipeDirection) {
-        counter += 1
     }
     
     func poi(_ poi: PoiView, runOutOfCardAt: Int, in direction: SwipeDirection) {

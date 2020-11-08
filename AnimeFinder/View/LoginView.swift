@@ -69,7 +69,7 @@ class LoginView: UIView {
     }
     
     private func layoutView() {
-        backgroundColor = .white
+        backgroundColor = kBrandWhite
         
         let margins = layoutMarginsGuide
                     

@@ -30,12 +30,14 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginViewDelegate {
     func loginView(_ view: LoginView, didTapLoginButton: UIButton) {
         if let email = view.emailAddress, let password = view.password {
+            didTapLoginButton.toggleMyButtonEnabled()
             Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                 
                 if let e = error {
                     print(e.localizedDescription)
                 } else {
                     let homeVC = HomeViewController()
+                    didTapLoginButton.toggleMyButtonEnabled()
                     self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }

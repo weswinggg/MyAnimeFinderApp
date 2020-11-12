@@ -68,3 +68,16 @@ extension UIButton {
         alpha = isEnabled ? 1 : 0.5
     }
 }
+
+//MARK: UIViewController extension to hide keyboard when tapped outsied
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

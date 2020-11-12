@@ -12,7 +12,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // code here after view loads
+        hideKeyboardWhenTappedAround()
         
         navigationController?.navigationBar.barTintColor = kBrandBlue
         navigationController?.navigationBar.tintColor = kBrandWhite

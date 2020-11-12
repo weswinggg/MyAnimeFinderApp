@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
+        
         let logoutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logoutPressed))
         
         navigationItem.hidesBackButton = true

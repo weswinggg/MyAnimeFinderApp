@@ -30,12 +30,14 @@ class RegisterViewController: UIViewController {
 extension RegisterViewController: RegisterViewDelegate {
     func registerView(_ view: RegisterView, didTapRegisterButton: UIButton) {
         if let email = view.emailAddress, let password = view.password {
+            didTapRegisterButton.toggleMyButtonEnabled()
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 
                 if let e = error {
                     print(e.localizedDescription)
                 } else {
                     let homeVC = HomeViewController()
+                    didTapRegisterButton.toggleMyButtonEnabled()
                     self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }

@@ -57,6 +57,7 @@ class LoginView: UIView {
         button.makeMySecondary(title: "Log in", size: 25)
         button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         button.addMyShadow()
+        button.setTitle("Logging in...", for: .disabled)
         return button
     }()
 

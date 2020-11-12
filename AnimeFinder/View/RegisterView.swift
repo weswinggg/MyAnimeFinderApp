@@ -55,6 +55,7 @@ class RegisterView: UIView {
         button.makeMySecondary(title: "Register", size: 25)
         button.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
         button.addMyShadow()
+        button.setTitle("Signing up...", for: .disabled)
         return button
     }()
 

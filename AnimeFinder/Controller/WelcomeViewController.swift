@@ -33,12 +33,12 @@ class WelcomeViewController: UIViewController {
 
 extension WelcomeViewController: WelcomeViewDelegate {
     func didTapLoginButton(_ sender: UIButton) {
-        let loginVC = LoginViewController()
+        let loginVC = LoginAndRegisterViewController(for: .login)
         navigationController?.pushViewController(loginVC, animated: true)
     }
     
     func didTapRegisterButton(_ sender: UIButton) {
-        let registerVC = RegisterViewController()
+        let registerVC = LoginAndRegisterViewController(for: .register)
         navigationController?.pushViewController(registerVC, animated: true)
     }
 }

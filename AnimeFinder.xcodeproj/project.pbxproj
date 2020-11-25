@@ -27,8 +27,7 @@
 		F89AA179254EC67E00E58CA6 /* MyAnimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89AA178254EC67E00E58CA6 /* MyAnimeManager.swift */; };
 		F89AA182254EED1C00E58CA6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89AA181254EED1C00E58CA6 /* HomeViewController.swift */; };
 		F89AA186254EF4C800E58CA6 /* AnimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89AA185254EF4C800E58CA6 /* AnimeData.swift */; };
-		F8BC8C38254D7981007F85BD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC8C37254D7981007F85BD /* LoginViewController.swift */; };
-		F8BC8C3B254D798F007F85BD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC8C3A254D798F007F85BD /* RegisterViewController.swift */; };
+		F8BC8C38254D7981007F85BD /* LoginAndRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC8C37254D7981007F85BD /* LoginAndRegisterViewController.swift */; };
 		F8D7AF662557AC620053449F /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7AF652557AC620053449F /* FormView.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +56,7 @@
 		F89AA178254EC67E00E58CA6 /* MyAnimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeManager.swift; sourceTree = "<group>"; };
 		F89AA181254EED1C00E58CA6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F89AA185254EF4C800E58CA6 /* AnimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeData.swift; sourceTree = "<group>"; };
-		F8BC8C37254D7981007F85BD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		F8BC8C3A254D798F007F85BD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F8BC8C37254D7981007F85BD /* LoginAndRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndRegisterViewController.swift; sourceTree = "<group>"; };
 		F8D7AF652557AC620053449F /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,8 +160,7 @@
 		F8BC8C35254D7967007F85BD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F8BC8C37254D7981007F85BD /* LoginViewController.swift */,
-				F8BC8C3A254D798F007F85BD /* RegisterViewController.swift */,
+				F8BC8C37254D7981007F85BD /* LoginAndRegisterViewController.swift */,
 				F89AA181254EED1C00E58CA6 /* HomeViewController.swift */,
 				F81DA315254FEB3100E51D59 /* ResultsViewController.swift */,
 				F89366D92555A496002FBECB /* WelcomeViewController.swift */,
@@ -290,8 +287,7 @@
 				F89366DA2555A496002FBECB /* WelcomeViewController.swift in Sources */,
 				F88E9B2B25565B9600A6FCB0 /* MyTextField.swift in Sources */,
 				F88E9B2625564FEF00A6FCB0 /* UIExtensions.swift in Sources */,
-				F8BC8C38254D7981007F85BD /* LoginViewController.swift in Sources */,
-				F8BC8C3B254D798F007F85BD /* RegisterViewController.swift in Sources */,
+				F8BC8C38254D7981007F85BD /* LoginAndRegisterViewController.swift in Sources */,
 				F8025A172556FF9D000C2A03 /* ResultsView.swift in Sources */,
 				F88E9B3A2556800500A6FCB0 /* RegisterView.swift in Sources */,
 				F88E9B3D2556823B00A6FCB0 /* HomeView.swift in Sources */,

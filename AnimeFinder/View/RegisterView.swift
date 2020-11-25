@@ -8,9 +8,7 @@
 import UIKit
 
 class RegisterView: UIView {
-    
-    var delegate: RegisterViewDelegate?
-    
+        
     var emailAddress: String? {
         return emailField.text
     }
@@ -50,10 +48,9 @@ class RegisterView: UIView {
         return textField
     }()
     
-    private let registerButton: MyButton = {
+    let registerButton: MyButton = {
         let button = MyButton()
         button.makeMySecondary(title: "Register", size: 25)
-        button.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
         button.addMyShadow()
         button.setTitle("Signing up...", for: .disabled)
         return button
@@ -88,14 +85,4 @@ class RegisterView: UIView {
         // Set priority to 999 to use width constraint first
         registerButton.anchor(bottom: margins.bottomAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, centerX: centerXAnchor, padding: .init(top: 0, left: 20, bottom: 50, right: 20), priority: 999)
     }
-    
-    @objc func registerPressed(sender: UIButton) {
-        delegate?.registerView(self, didTapRegisterButton: sender)
-    }
-    
-}
-
-//MARK: RegisterViewDelegate Protocol
-protocol RegisterViewDelegate {
-    func registerView(_ view: RegisterView, didTapRegisterButton: UIButton)
 }

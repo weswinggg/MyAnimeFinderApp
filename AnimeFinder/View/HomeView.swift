@@ -8,9 +8,7 @@
 import UIKit
 
 class HomeView: UIView {
-    
-    var delegate: HomeViewDelegate?
-    
+        
     var searchText: String? {
         return searchTextField.text
     }
@@ -25,8 +23,6 @@ class HomeView: UIView {
     let searchButton: MyButton = {
         let button = MyButton()
         button.makeMySecondary(title: "Search", size: 25)
-        button.addTarget(self, action: #selector(searchPressed), for: .touchUpInside)
-        
         button.setTitle("Searching...", for: .disabled)
         button.addMyShadow()
         return button
@@ -76,14 +72,4 @@ class HomeView: UIView {
         // Set priority to 999 to use width constraint first
         searchButton.anchor(bottom: margins.bottomAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, centerX: centerXAnchor, padding: .init(top: 0, left: 20, bottom: 50, right: 20), priority: 999)
     }
-    
-    @objc func searchPressed(sender: UIButton) {
-        delegate?.homeView(self, didTapSearchButton: sender)
-    }
-
-}
-
-//MARK: HomeViewDelegate Protocol
-protocol HomeViewDelegate {
-    func homeView(_ view: HomeView, didTapSearchButton: UIButton)
 }

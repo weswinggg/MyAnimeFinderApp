@@ -9,19 +9,15 @@ import UIKit
 
 class WelcomeView: UIView {
     
-    var delegate: WelcomeViewDelegate?
-
     let loginButton: MyButton = {
        let button = MyButton()
         button.makeMyPrimary(title: "Log in", size: 25)
-        button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         return button
     }()
 
     let registerButton: MyButton = {
         let button = MyButton()
         button.makeMySecondary(title: "Register", size: 25)
-        button.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
         button.layer.borderWidth = 2
         button.layer.borderColor = kBrandWhite?.cgColor
         return button
@@ -36,7 +32,7 @@ class WelcomeView: UIView {
         super.init(coder: coder)
     }
     
-    func layoutView() {
+    private func layoutView() {
         backgroundColor = kBrandBlue
         
         let margins = layoutMarginsGuide
@@ -70,19 +66,4 @@ class WelcomeView: UIView {
         loginButton.anchor(bottom: registerButton.topAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, centerX: centerXAnchor, padding: UIEdgeInsets.init(top: 0, left: 20, bottom: 20, right: 20), priority: 999)
         
     }
-    
-    @objc func loginPressed(sender: UIButton) {
-        delegate?.didTapLoginButton(sender)
-    }
-
-    @objc func registerPressed(sender: UIButton) {
-        delegate?.didTapRegisterButton(sender)
-    }
-    
-}
-
-//MARK: WelcomeViewDelegate Protocol
-protocol WelcomeViewDelegate {
-    func didTapLoginButton(_ sender: UIButton)
-    func didTapRegisterButton(_ sender: UIButton)
 }

@@ -11,32 +11,20 @@
 // https://jikan.docs.apiary.io/#
 
 import UIKit
+import Alamofire
 
 struct MyAnimeManager {
-    
-    var delegate: MyAnimeManagerDelegate?
-    
-    func searchTitle(with title: String) {
         
+    func searchTitle(with title: String, completion: @escaping ([AnimeSearch.Result]) -> ()) {
         var urlString = "https://api.jikan.moe/v3/search/anime?q=\(title)&limit=10"
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = URL(string: urlString)!
-
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url) { (data, response, error) in
-            
-            if let error = error {
-                print("Session Error:",error.localizedDescription)
-                return
-            }
-            
-            if let data = data {
-                let list: AnimeSearch = self.parseJSON(data: data)
-                self.delegate?.didSearchComplete(with: list)
-            }
-        }
         
-        task.resume()
+        AF.request(urlString)
+            .validate()
+            .responseDecodable(of: AnimeSearch.self) { res in
+                guard let data = res.value else { return }
+                completion(data.results)
+            }
     }
     
     func getImage(with urlString: String) -> UIImage {
@@ -65,18 +53,4 @@ struct MyAnimeManager {
         
         return genres
     }
-    
-    private func parseJSON<T: Decodable>(data: Data) -> T{
-        let decoder = JSONDecoder()
-        
-        guard let decoded = try? decoder.decode(T.self, from: data) else {
-            fatalError("Failed to decode data")
-        }
-        
-        return decoded
-    }
-}
-
-protocol MyAnimeManagerDelegate {
-    func didSearchComplete(with data: AnimeSearch)
 }

@@ -9,8 +9,6 @@ import UIKit
 
 class LoginView: UIView {
     
-    var delegate: LoginViewDelegate?
-    
     var emailAddress: String? {
         return emailField.text
     }
@@ -52,10 +50,9 @@ class LoginView: UIView {
         return textField
     }()
     
-    private let loginButton: MyButton = {
+    let loginButton: MyButton = {
         let button = MyButton()
         button.makeMySecondary(title: "Log in", size: 25)
-        button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         button.addMyShadow()
         button.setTitle("Logging in...", for: .disabled)
         return button
@@ -91,14 +88,4 @@ class LoginView: UIView {
         // Set priority to 999 to use width constraint first
         loginButton.anchor(bottom: margins.bottomAnchor, leading: margins.leadingAnchor, trailing: margins.trailingAnchor, centerX: centerXAnchor, padding: .init(top: 0, left: 20, bottom: 50, right: 20), priority: 999)
     }
-    
-    @objc func loginPressed(sender: UIButton) {
-        delegate?.loginView(self, didTapLoginButton: sender)
-    }
-    
-}
-
-//MARK: LoginViewDelegate Protocol
-protocol LoginViewDelegate {
-    func loginView(_ view: LoginView, didTapLoginButton: UIButton)
 }

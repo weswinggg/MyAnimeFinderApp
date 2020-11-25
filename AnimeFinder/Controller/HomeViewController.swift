@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        animeManager.delegate = self
         
         let logoutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logoutPressed))
         
@@ -35,8 +36,7 @@ class HomeViewController: UIViewController {
         
         homeView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
         
-        homeView.delegate = self
-        animeManager.delegate = self
+        homeView.searchButton.addTarget(self, action: #selector(searchPressed), for: .touchUpInside)
     }
     
     @objc func logoutPressed() {
@@ -45,6 +45,13 @@ class HomeViewController: UIViewController {
             navigationController?.popToRootViewController(animated: true)
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    @objc func searchPressed(_ sender: UIButton) {
+        if let searchText = homeView.searchText, homeView.searchText != "" {
+            animeManager.searchTitle(with: searchText)
+            sender.toggleMyButtonEnabled()
         }
     }
 }
@@ -68,17 +75,6 @@ extension HomeViewController: MyAnimeManagerDelegate {
             
             homeView.searchButton.toggleMyButtonEnabled()
             navigationController?.pushViewController(resultsVC, animated: true)
-        }
-    }
-}
-
-//MARK: HomeViewDelegate extension
-extension HomeViewController: HomeViewDelegate {
-    func homeView(_ view: HomeView, didTapSearchButton: UIButton) {
-        
-        if let searchText = view.searchText, view.searchText != "" {
-            animeManager.searchTitle(with: searchText)
-            didTapSearchButton.toggleMyButtonEnabled()
         }
     }
 }

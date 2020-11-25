@@ -35,7 +35,6 @@ struct AnimeSearch: Decodable {
             case score
             case rated
         }
-    
     }
     
     var results: [Result]

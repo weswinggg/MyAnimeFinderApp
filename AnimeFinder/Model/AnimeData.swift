@@ -8,10 +8,10 @@
 import Foundation
 
 struct AnimeSearch: Decodable {
-    struct Result: Decodable {
-        let mal_id: Int
+    struct Result: Codable {
+        let id: Int
         let title: String
-        let image_url: String
+        let imageURL: String
         let url: String
         
         let type: String
@@ -23,9 +23,22 @@ struct AnimeSearch: Decodable {
         let score: Double
         let rated: String?
         
+        enum CodingKeys: String, CodingKey {
+            case id = "mal_id"
+            case title
+            case imageURL = "image_url"
+            case url
+            case type
+            case airing
+            case synopsis
+            case episodes
+            case score
+            case rated
+        }
+    
     }
     
-    let results: [Result]
+    var results: [Result]
 }
 
 struct AnimeGenres {

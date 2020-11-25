@@ -57,7 +57,7 @@ extension HomeViewController: MyAnimeManagerDelegate {
         images = [UIImage]()
         
         for i in searchResults {
-            let image = animeManager.getImage(with: i.image_url)
+            let image = animeManager.getImage(with: i.imageURL)
             images.append(image)
         }
         

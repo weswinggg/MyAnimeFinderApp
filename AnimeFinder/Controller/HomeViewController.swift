@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
             
     var animeManager = MyAnimeManager()
     
-    var searchResults = [AnimeSearch.Result]()
     var images = [UIImage]()
     var genreFilter = [String]()
     
@@ -22,20 +21,15 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-        animeManager.delegate = self
         
         let logoutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logoutPressed))
-        
         navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = logoutBarButton
-
         navigationController?.navigationBar.backgroundColor = kBrandBlue
         navigationController?.navigationBar.tintColor = kBrandWhite
         
         view.addSubview(homeView)
-        
         homeView.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
-        
         homeView.searchButton.addTarget(self, action: #selector(searchPressed), for: .touchUpInside)
     }
     
@@ -50,31 +44,25 @@ class HomeViewController: UIViewController {
     
     @objc func searchPressed(_ sender: UIButton) {
         if let searchText = homeView.searchText, homeView.searchText != "" {
-            animeManager.searchTitle(with: searchText)
-            sender.toggleMyButtonEnabled()
-        }
-    }
-}
-
-//MARK: MyAnimeManagerDelegate extension
-extension HomeViewController: MyAnimeManagerDelegate {
-    func didSearchComplete(with data: AnimeSearch) {
-        searchResults = data.results
-        
-        images = [UIImage]()
-        
-        for i in searchResults {
-            let image = animeManager.getImage(with: i.imageURL)
-            images.append(image)
-        }
-        
-        DispatchQueue.main.async { [self] in
-            let resultsVC = ResultsViewController()
-            resultsVC.results = searchResults
-            resultsVC.images = images
+            animeManager.searchTitle(with: searchText) { data in
+                self.images = [UIImage]()
+                
+                for i in data {
+                    let image = self.animeManager.getImage(with: i.imageURL)
+                    self.images.append(image)
+                }
+                
+                DispatchQueue.main.async { [self] in
+                    let resultsVC = ResultsViewController()
+                    resultsVC.results = data
+                    resultsVC.images = images
+                    
+                    homeView.searchButton.toggleMyButtonEnabled()
+                    navigationController?.pushViewController(resultsVC, animated: true)
+                }
+            }
             
-            homeView.searchButton.toggleMyButtonEnabled()
-            navigationController?.pushViewController(resultsVC, animated: true)
+            sender.toggleMyButtonEnabled()
         }
     }
 }

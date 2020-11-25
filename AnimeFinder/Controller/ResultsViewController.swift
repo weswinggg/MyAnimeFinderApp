@@ -7,21 +7,8 @@
 
 import UIKit
 import Poi
-import ReplayKit
 
 class ResultsViewController: UIViewController {
-    
-    let recorder = RPScreenRecorder.shared()
-    
-    let recordButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("Record", for: .normal)
-        button.backgroundColor = .red
-        button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(recordPressed), for: .touchUpInside)
-        return button
-    }()
     
     var results = [AnimeSearch.Result]()
     var sampleCards = [UIView]()
@@ -82,46 +69,7 @@ class ResultsViewController: UIViewController {
         poiView.center = view.center
         poiView.dataSource = self
         poiView.delegate = self
-        
-        view.addSubview(recordButton)
-        
-        recordButton.anchor(bottom: view.bottomAnchor, centerX: view.centerXAnchor, padding: .init(top: 0, left: 0, bottom: 20, right: 0))
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        
-        if recorder.isRecording {
-            // stop recording if moved to different view
-            recorder.stopRecording(handler: nil)
-        }
-    }
-    
-    // toggle recording
-    @objc func recordPressed(sender: UIButton) {
-        
-        if recorder.isRecording {
-            sender.setTitle("Record", for: .normal)
-            recorder.stopRecording { (previewVC, error) in
-                if let e = error {
-                    print(e.localizedDescription)
-                } else if let previewVC = previewVC {
-                    
-                    previewVC.previewControllerDelegate = self
-                    // display the recorded video to save, edit...
-                    self.present(previewVC, animated: true, completion: nil)
-                }
-            }
-        } else {
-            sender.setTitle("Stop", for: .normal)
-            recorder.startRecording { (error) in
-                if let e = error {
-                    print(e.localizedDescription)
-                }
-            }
-        }
-    }
-    
 }
 
 extension ResultsViewController: PoiViewDataSource {
@@ -160,12 +108,4 @@ extension ResultsViewController: PoiViewDelegate {
     func poi(_ poi: PoiView, runOutOfCardAt: Int, in direction: SwipeDirection) {
     }
 
-}
-
-//MARK: RPPreview protocol
-extension ResultsViewController: RPPreviewViewControllerDelegate {
-    func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
-        // remove the previewController
-        dismiss(animated: true, completion: nil)
-    }
 }
